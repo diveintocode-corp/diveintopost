@@ -11,4 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree .
+//= require vendor/sb-admin/jquery.min
+//= require vendor/sb-admin/bootstrap.min
+//= require vendor/sb-admin/metisMenu.min
+//= require vendor/sb-admin/raphael.min
+//= require vendor/sb-admin/morris.min
+//= require vendor/sb-admin/sb-admin-2.min
