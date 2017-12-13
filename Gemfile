@@ -10,6 +10,7 @@ gem 'rails', '~> 5.1.4'
 
 # Model/DB
 gem 'pg', '~> 0.18'
+gem 'devise'
 
 # View
 gem 'sass-rails', '~> 5.0'
