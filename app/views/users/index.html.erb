@@ -1,0 +1,46 @@
+<% content_for :content_header do %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">ユーザー一覧</h1>
+    </div>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-header">
+
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-md-1">#</th>
+                <th class="col-md-2"><%= User.human_attribute_name(:name) %></th>
+                <th class="col-md-2"><%= User.human_attribute_name(:account_name) %></th>
+                <th class="col-md-3"><%= User.human_attribute_name(:email) %></th>
+                <th class="col-md-3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.account_name %></td>
+                  <td><%= user.email %></td>
+                  <td>
+                    <%= link_to 'Show', user_path(user), class: 'btn btn-default' %>
+                    <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
+                    <%= link_to 'Destroy', user_path(user), class: 'btn btn-danger', method: :delete %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

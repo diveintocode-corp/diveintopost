@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  resource :user, only: [:show]
+  root 'users#dashboard'
+
+  devise_for :users
+
+  resources :users do
+    get :dashboard, on: :collection
+  end
 end
