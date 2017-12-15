@@ -1,0 +1,20 @@
+<div class="login-panel panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">パスワードをお忘れの方</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
+      <fieldset>
+        <div class="form-group">
+          <%= form.label :email %><br />
+          <%= form.email_field :email, autofocus: true, class: 'form-control', placeholder: 'test@example.com' %>
+        </div>
+
+        <%= form.submit 'パスワード再設定を行う', class: 'btn btn-lg btn-success btn-block' %>
+      </fieldset>
+    <% end %>
+  </div>
+  <div class="panel-footer">
+    <%= render 'users/shared/links' %>
+  </div>
+</div>
