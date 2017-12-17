@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.article = @article
 
     if @comment.save
-      @slack_api.post_message(@comment.content)
+      @slack_api.post_message(@comment.slack_message)
       redirect_to article_url(@article), notice: 'コメントを投稿しました'
     else
       render 'articles/show'
