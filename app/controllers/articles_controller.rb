@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_slack_api, only: [:create]
 
   def index
     @articles = Article.all
@@ -20,6 +21,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
 
     if @article.save
+      @slack_api.post_message(@article.title)
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else
       render :new

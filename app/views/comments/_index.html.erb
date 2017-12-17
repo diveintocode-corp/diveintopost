@@ -10,7 +10,9 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-body">
-        <%= simple_format(comment.content) %>
+        <div class="markdown-body">
+          <%= markdown(comment.content) %>
+        </div>
       </div>
     </div>
   <% end %>

@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
+  before_action :set_slack_api, only: [:create]
 
   def create
     @article = Article.find(params[:article_id])
@@ -7,6 +8,7 @@ class CommentsController < ApplicationController
     @comment.article = @article
 
     if @comment.save
+      @slack_api.post_message(@comment.content)
       redirect_to article_url(@article), notice: 'コメントを投稿しました'
     else
       render 'articles/show'

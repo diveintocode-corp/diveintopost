@@ -19,9 +19,17 @@ gem 'webpacker'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
+gem "redcarpet"
+gem "rouge"
 
 # Middleware
 gem 'puma', '~> 3.7'
+
+# API
+gem 'slack-ruby-client'
+
+# Configure
+gem 'dotenv-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
