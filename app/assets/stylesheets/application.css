@@ -14,6 +14,7 @@
  *= require vendor/sb-admin/metisMenu.min
  *= require vendor/sb-admin/sb-admin-2.min
  *= require vendor/sb-admin/morris
+ *= require common
  *= require font-awesome
  *= require_self
  */
