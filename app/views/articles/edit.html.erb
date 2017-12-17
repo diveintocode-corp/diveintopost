@@ -1,0 +1,13 @@
+<% content_for :content_header do %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">投稿記事編集</h1>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= render 'form', article: @article %>
+  </div>
+</div>

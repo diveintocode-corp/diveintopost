@@ -1,0 +1,21 @@
+<% content_for :content_header do %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><%= @article.title %></h1>
+      <p class="text-right">
+        <%= @article.user&.name %>
+        投稿日時 <%= l(@article.created_at, format: :default) %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= simple_format(@article.content) %>
+    <div class="">
+      <%= link_to '編集', edit_article_path(@article), class: 'btn btn-info' %>
+      <%= link_to '削除', article_path(@article), method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

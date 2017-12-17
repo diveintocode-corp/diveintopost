@@ -26,7 +26,17 @@
             <%= link_to '追加', new_user_path %>
           </li>
         </ul>
-        <!-- /.nav-second-level -->
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-file fa-fw"></i> 投稿記事管理<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <%= link_to '一覧', articles_path %>
+          </li>
+          <li>
+            <%= link_to '投稿', new_article_path %>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>

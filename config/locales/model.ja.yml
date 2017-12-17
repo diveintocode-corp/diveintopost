@@ -9,3 +9,9 @@ ja:
         password_confirmation: パスワード確認用
         created_at: 登録日時
         updated_at: 更新日時
+      article:
+        title: タイトル
+        content: 内容
+        user_id: ユーザーID
+        created_at: 登録日時
+        updated_at: 更新日時
