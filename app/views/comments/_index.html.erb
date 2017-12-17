@@ -1,0 +1,17 @@
+<div class="comment-list">
+  <% comments.each do |comment| %>
+    <div class="comment-list-heading clearfix">
+      <div class="pull-left">
+        <%= comment.user&.name %> <%= l(comment.created_at, format: :default) %>
+      </div>
+      <div class="pull-right">
+        <%= link_to '削除', comment_path(comment), method: :delete %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= simple_format(comment.content) %>
+      </div>
+    </div>
+  <% end %>
+</div>

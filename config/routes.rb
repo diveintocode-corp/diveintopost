@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     get :dashboard, on: :collection
   end
-  resources :articles
+  resources :articles, shallow: true do
+    resources :comments, only: [:create, :update, :destroy]
+  end
 end
