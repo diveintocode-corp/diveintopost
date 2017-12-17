@@ -26,7 +26,7 @@ gem "rouge"
 gem 'puma', '~> 3.7'
 
 # API
-gem 'slack-ruby-client'
+gem 'slack-incoming-webhooks'
 
 # Configure
 gem 'dotenv-rails'

@@ -90,17 +90,11 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
-    faraday (0.13.1)
-      multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.12.2)
-      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
-    gli (2.17.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    hashie (3.5.6)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -124,7 +118,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
-    multipart-post (2.0.0)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -212,13 +205,7 @@ GEM
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-    slack-ruby-client (0.11.0)
-      activesupport
-      faraday (>= 0.9)
-      faraday_middleware
-      gli
-      hashie
-      websocket-driver
+    slack-incoming-webhooks (0.2.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -284,7 +271,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
-  slack-ruby-client
+  slack-incoming-webhooks
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
 
     if @article.save
-      @slack_api.post_message(@article.slack_message)
+      @slack_api.post_message(@article.slack_title, @article, @article.user)
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else
       render :new
