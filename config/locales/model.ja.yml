@@ -15,3 +15,9 @@ ja:
         user_id: ユーザーID
         created_at: 登録日時
         updated_at: 更新日時
+      comment:
+        user_id: ユーザーID
+        article_id: 記事ID
+        content: 内容
+        created_at: 登録日時
+        updated_at: 更新日時
