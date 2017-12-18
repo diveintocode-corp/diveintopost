@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @articles = Article.all
   end
 
   private

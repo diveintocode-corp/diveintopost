@@ -1,98 +1,30 @@
 <% content_for :content_header do %>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Dashboard</h1>
+      <h1 class="page-header">ダッシュボード</h1>
     </div>
   </div>
 <% end %>
 
-<div class="row">
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-comments fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge">26</div>
-            <div>New Comments!</div>
-          </div>
-        </div>
-      </div>
-      <a href="#">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
-    </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="text-left">
+      <i class="fa fa-files-o fa-fw"></i> <%= @articles.count %>件の投稿
+    </span>
   </div>
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-green">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-tasks fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge">12</div>
-            <div>New Tasks!</div>
-          </div>
-        </div>
-      </div>
-      <a href="#">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-yellow">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-shopping-cart fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge">124</div>
-            <div>New Orders!</div>
+  <ul class="list-group">
+    <% @articles.each do |article| %>
+      <li class="list-group-item">
+        <div class="media">
+          <a class="media-left">
+
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= link_to article.title, article_path(article) %></h4>
+            投稿日時 <%= l(article.created_at, format: :default) %> by <%= article.user&.name %>
           </div>
         </div>
-      </div>
-      <a href="#">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-red">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-support fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge">13</div>
-            <div>Support Tickets!</div>
-          </div>
-        </div>
-      </div>
-      <a href="#">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
-    </div>
-  </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
