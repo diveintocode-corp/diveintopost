@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  resources :users do
+  resources :users, except: [:edit] do
     get :dashboard, on: :collection
   end
+  resource :user, only: :edit
   resources :articles, shallow: true do
     resources :comments, only: [:create, :update, :destroy]
   end
