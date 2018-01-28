@@ -17,3 +17,4 @@
 //= require vendor/sb-admin/raphael.min
 //= require vendor/sb-admin/morris.min
 //= require vendor/sb-admin/sb-admin-2.min
+//= require common

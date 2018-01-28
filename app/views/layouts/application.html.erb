@@ -9,14 +9,13 @@
 
   <body>
     <div id="wrapper">
-      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+      <nav id="header" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <%= render 'shared/header' %>
-        <%= render 'shared/sidebar' %>
       </nav>
-
-      <div id="page-wrapper">
-        <%= yield :content_header %>
-        <%= yield %>
+      <div class="content-wrapper">
+        <div class="container">
+          <%= yield %>
+        </div>
       </div>
     </div><!-- wrapper -->
 

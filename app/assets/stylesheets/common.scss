@@ -1,3 +1,7 @@
+html,body,#wrapper {
+  height: 100%;
+}
+
 .mt-2 {
   margin-top: 2em;
 }
@@ -12,4 +16,9 @@
 
 .border-bottom {
   border-bottom: 1px #ddd solid;
+}
+
+.content-wrapper {
+  background-color: #fff;
+  padding: 20px 0;
 }
