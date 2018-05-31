@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  resources :teams
+  resources :teams do
+    resources :assigns, only: %w(create)
+  end
 end

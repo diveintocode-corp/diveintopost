@@ -4,4 +4,8 @@ class Team < ApplicationRecord
   has_many :assigns, dependent: :destroy
   has_many :members, through: :assigns, source: :user
   has_many :articles, dependent: :destroy
+
+  def invite_member(user)
+    assigns.create(user: user)
+  end
 end

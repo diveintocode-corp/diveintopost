@@ -1,4 +1,23 @@
 <p id="notice"><%= notice %></p>
 <%= @team.name %>
+
+<hr>
+<h2>チームメンバー</h2>
+<ul>
+  <% @team.members.each do |member| %>
+    <li>
+      <%= member.email %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+<h2>メンバー招待</h2>
+<%= form_with model: :assign, scope: :post, url: team_assigns_path(@team), local: true do |form| %>
+  <%= text_field_tag :email %>
+  <%= submit_tag '招待' %>
+<% end %>
+
+<hr>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
