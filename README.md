@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+文書共有がSlack依存になってしまっている状態を改善するためのアプリケーション
 
-Things you may want to cover:
+## バージョン
+* Ruby 2.5.1
+* Ruby on Rails 5.2.0
 
-* Ruby version
+## 準備
 
-* System dependencies
+```
+$ git clone git@github.com:DiveintoCode-corp/diveintopost.git
+$ cd diveintopost
+$ rails db:create db:migrate
+```
 
-* Configuration
+## アプリケーション実行
 
-* Database creation
+```
+$ rails s
 
-* Database initialization
+もう一枚端末を開いて
+$ bin/webpack-dev-server
+```
 
-* How to run the test suite
+## 開発フロー
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ git checkout develop
+$ git checkout -b feature/issues-イシュー番号
 
-* Deployment instructions
+開発を実施
 
-* ...
+開発完了後
+$ git push origin feature/issues-イシュー番号
+
+GitHub場でPull Requestを作成
+レビューと修正を繰り返してマージ
+
+新しくissueを割り振られたらgit checkout developして新たにfeatureブランチを切る
+あとは臨機応変に
+```
