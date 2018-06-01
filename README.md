@@ -11,6 +11,7 @@
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
+$ bundle install --path vendor/bundle
 $ rails db:create db:migrate
 ```
 
