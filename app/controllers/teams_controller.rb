@@ -17,7 +17,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = current_user.teams.build(team_params)
+    @team = Team.new(team_params)
+    @team.owner = current_user
 
     if @team.save
       redirect_to @team, notice: 'Team was successfully created.'
