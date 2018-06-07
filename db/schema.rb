@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_105512) do
+ActiveRecord::Schema.define(version: 2018_06_07_033457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agendas", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "team_id"
+    t.bigint "user_id"
+    t.index ["team_id"], name: "index_agendas_on_team_id"
+    t.index ["user_id"], name: "index_agendas_on_user_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.bigint "user_id"
@@ -22,6 +33,8 @@ ActiveRecord::Schema.define(version: 2018_05_31_105512) do
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "agenda_id"
+    t.index ["agenda_id"], name: "index_articles_on_agenda_id"
     t.index ["team_id"], name: "index_articles_on_team_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
@@ -60,6 +73,9 @@ ActiveRecord::Schema.define(version: 2018_05_31_105512) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "agendas", "teams"
+  add_foreign_key "agendas", "users"
+  add_foreign_key "articles", "agendas"
   add_foreign_key "articles", "teams"
   add_foreign_key "articles", "users"
   add_foreign_key "assigns", "teams"
