@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
+  resources :agendas
   resources :teams do
     resources :assigns, only: %w(create)
     resources :articles, shallow: true
