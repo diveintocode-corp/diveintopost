@@ -1,0 +1,23 @@
+<%= form_with(model: @agenda, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @agenda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
+
+      <ul>
+      <% @agenda.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
