@@ -244,6 +244,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (2.3.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -369,6 +370,7 @@ DEPENDENCIES
   capistrano-rbenv
   capybara
   chromedriver-helper
+  coderay
   database_cleaner
   devise
   factory_bot_rails
@@ -385,6 +387,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.0)
   rails-controller-testing
+  redcarpet (~> 2.3.0)
   rspec-parameterized
   rspec-rails
   rspec-retry
