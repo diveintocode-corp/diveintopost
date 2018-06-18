@@ -14,7 +14,6 @@ gem 'puma', '~> 3.11'
 # Frontend
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker', '~> 3.5'
-gem 'webpacker', '~> 3.5'
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
 
