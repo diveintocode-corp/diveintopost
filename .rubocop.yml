@@ -4,22 +4,13 @@ AllCops:
     - db/migrate/*
     - bin/**/*
     - vendor/**/*
-    - spec/**/*
     - config/**/*
     - lib/**/*
     - node_modules/**/*
     - Rakefile
-    # - tmp/localtime.rb
-    # - Guardfile
+    # デフォルトのRspec修正がきついので一旦除外
+    - spec/**/*
   TargetRubyVersion: 2.5
-# Metrics/AbcSize:
-#   Max: 22
-# Metrics/BlockLength:
-#   Max: 86
-# Metrics/LineLength:
-#   Max: 141
-# Metrics/MethodLength:
-#   Max: 23
 Rails:
   Enabled: true
 Style/AsciiComments:

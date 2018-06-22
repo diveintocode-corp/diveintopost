@@ -1,21 +1,19 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
   def index
     @articles = Article.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @team = Team.find(params[:team_id])
     @article = Article.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @team = Team.find(params[:team_id])
