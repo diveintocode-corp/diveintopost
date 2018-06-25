@@ -4,15 +4,12 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    # @agenda = Agenda.find(params[:agenda_id])
   end
 
   def show
   end
 
   def new
-    # @team = Team.find(params[:team_id])
-         # binding.pry
     @agenda = Agenda.find(params[:agenda_id])
     @article = Article.new
 
@@ -22,13 +19,11 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # @team = Team.find(params[:team_id])
     @agenda = Agenda.find(params[:agenda_id])
     @article = @agenda.articles.build(article_params)
-    # binding.pry
     @article.team_id = @agenda.team_id
     @article.user = current_user
-       if @article.save
+    if @article.save
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else
       render :new

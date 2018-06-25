@@ -3,29 +3,16 @@ class AgendasController < ApplicationController
 
   def index
     @agendas = Agenda.all
-    # binding.pry
-    # @agenda = Agenda.find_by(id: params[:id])
-    # @articles = Article.find_by(id: @agenda)
-    # @articles = Article.find_by(agenda_id: params[:agenda_id])
   end
 
   def new
     @team = Team.find(params[:team_id])
-   # if params[:back]
-     # @agenda = Agenda.new(agenda_params)
-    # else
-      @agenda = Agenda.new
-    # end
+    @agenda = Agenda.new
   end
 
   def create
-    # @team = Team.find(params[:team_id])
-    # @team.id
     @agenda = current_user.agendas.build(agenda_params)
-    # binding.pry
     @agenda.team_id = params[:team_id]
-    # @agenda.user_id = current_user.id
-
     if @agenda.save
       redirect_to team_agendas_url(@agenda), notice: 'Agenda was successfully created.'
     else
