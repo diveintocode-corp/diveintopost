@@ -1,0 +1,49 @@
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/diveintopost
+    docker:
+      - image: circleci/ruby:2.5.1
+        environment:
+          PGHOST: localhost
+          PGUSER: keijiban
+          RAILS_ENV: test
+          DATABASE_HOST: 127.0.0.1
+      - image: postgres:9.6.3
+        environment:
+          POSTGRES_USER: keijiban
+          POSTGRES_DB: keijiban_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      # Restore Cached Dependencies
+      # - type: cache-restore
+      #   name: Restore bundle cache
+      #   key: your-app-name-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+      - run: bundle install --path vendor/bundle
+
+      # Cache Dependencies
+      # - type: cache-save
+      #   name: Store bundle cache
+      #   key: your-app-name-{{ checksum "Gemfile.lock" }}
+      #   paths:
+      #     - vendor/bundle
+
+      # Wait for DB
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # Setup the environment
+      # - run: cp .sample.env .env
+
+      # Setup the database
+      - run: bundle exec rake db:setup
+
+      # Run the tests
+      - run: bundle exec rake
+
+      # Run the rubocop
+      - run: bundle exec rubocop
