@@ -46,4 +46,6 @@ jobs:
       - run: bundle exec rake
 
       # Run the rubocop
-      - run: bundle exec rubocop
+      - run:
+          name: rubocop
+          code: bundle exec rubocop
