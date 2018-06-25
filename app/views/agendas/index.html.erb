@@ -10,12 +10,17 @@
   </thead>
 
   <tbody>
-    <% @agendas.each do |agenda| %>
-      <tr>
-        <td><%= link_to 'Show', agenda %></td>
-        <td><%= link_to 'Edit', edit_agenda_path(agenda) %></td>
-        <td><%= link_to 'Destroy', agenda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% @agendas.includes(:articles).each do |agenda| %>
+      <table>
+        <tr>Agenda title:<%= agenda.title %></tr>
+        <tr><%#= link_to 'Show', agenda %></tr>
+        <tr><%#= link_to 'Edit', edit_agenda_path(agenda) %></tr>
+        <tr><%#= link_to 'Destroy', agenda, method: :delete, data: { confirm: 'Are you sure?' } %></tr>
+        <br />
+        <% agenda.articles.each do |article| %>
+          <li>Article title:<%= article.title %></li>
+        <% end %>
+      </table>
     <% end %>
   </tbody>
 </table>

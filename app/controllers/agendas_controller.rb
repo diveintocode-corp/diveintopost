@@ -1,24 +1,21 @@
 class AgendasController < ApplicationController
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy]
+  # before_action :set_agenda, only: %i[show edit update destroy]
 
   def index
     @agendas = Agenda.all
-  end
-
-  def show
-    @team = @agenda.team
+    # binding.pry
+    # @agenda = Agenda.find_by(id: params[:id])
+    # @articles = Article.find_by(id: @agenda)
+    # @articles = Article.find_by(agenda_id: params[:agenda_id])
   end
 
   def new
     @team = Team.find(params[:team_id])
-    if params[:back]
-      @agenda = Agenda.new(agenda_params)
-    else
+   # if params[:back]
+     # @agenda = Agenda.new(agenda_params)
+    # else
       @agenda = Agenda.new
-    end
-  end
-
-  def edit
+    # end
   end
 
   def create
@@ -29,32 +26,21 @@ class AgendasController < ApplicationController
     @agenda.team_id = params[:team_id]
     # @agenda.user_id = current_user.id
 
-      if @agenda.save
-        redirect_to agenda_url(@agenda), notice: 'Agenda was successfully created.'
-      else
-        render :new 
-      end
-  end
-
-  def update
-      if @agenda.update(agenda_params)
-        redirect_to @agenda, notice: 'Agenda was successfully updated.'
-      else
-        render :edit
-      end
-  end
-
-  def destroy
-    @agenda.destroy
-      redirect_to teams_path, notice: 'Agenda was successfully destroyed.'
+    if @agenda.save
+      redirect_to team_agendas_url(@agenda), notice: 'Agenda was successfully created.'
+    else
+      render :new
+    end
   end
 
   private
-    def set_agenda
-      @agenda = Agenda.find(params[:id])
-    end
+  def set_agenda
+    @agenda = Agenda.find(params[:id])
+  end
 
-    def agenda_params
-      params.fetch(:agenda, {}).permit(:title, :description)
-    end
+  def agenda_params
+    params.fetch(:agenda, {}).permit %i[
+      title description
+    ]
+  end
 end
