@@ -1,13 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :routing do
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
+
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
+
+  let(:valid_session) { {} }
+
   describe 'routing' do
     it 'routes to #index' do
-      expect(get: '/articles').to route_to('articles#index')
+      team = Team.create! valid_attributes
+      expect(get: "teams/#{team.id}/articles").to route_to('articles#index')
     end
 
     it 'routes to #new' do
-      expect(get: '/articles/new').to route_to('articles#new')
+      team = Team.create! valid_attributes
+      expect(get: "teams/#{team.id}/articles/new").to route_to('articles#new')
     end
 
     it 'routes to #show' do
@@ -15,11 +27,13 @@ RSpec.describe ArticlesController, type: :routing do
     end
 
     it 'routes to #edit' do
-      expect(get: '/articles/1/edit').to route_to('articles#edit', id: '1')
+      team = Team.create! valid_attributes
+      expect(get: "teams/#{team.id}/articles/edit").to route_to('articles#edit', id: '1')
     end
 
     it 'routes to #create' do
-      expect(post: '/articles').to route_to('articles#create')
+      team = Team.create! valid_attributes
+      expect(post: "teams/#{team.id}/articles").to route_to('articles#create')
     end
 
     it 'routes to #update via PUT' do
