@@ -35,18 +35,21 @@ Rails/UnknownEnv:
     - test
     # - staging
 
+# 不要なものはEnabled: falseで設定を除外する
+
 Rails/ApplicationRecord:
   Description: 'Check that models subclass ApplicationRecord.'
+  Enabled: false
+
+Rails/InverseOf:
   Enabled: false
 
 Style/ClassAndModuleChildren:
   Enabled: false
 
-# 不要なものはEnabled: falseで設定を除外する
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
 
-# Rails/HasManyOrHasOneDependent:
-#   Enabled: false
-#
 # Naming/VariableNumber:
 #   Enabled: false
 #
