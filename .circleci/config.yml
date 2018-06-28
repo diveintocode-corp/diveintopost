@@ -1,0 +1,27 @@
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/diveintopost
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          PGHOST: localhost
+          PGUSER: keijiban
+          RAILS_ENV: test
+          DATABASE_HOST: 127.0.0.1
+      - image: postgres:9.6.3
+        environment:
+          POSTGRES_USER: keijiban
+          POSTGRES_DB: keijiban_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      - run: bundle install --path vendor/bundle
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: yarn
+      - run: bundle exec bin/webpack
+      - run: bundle exec rake db:setup
+      - run: bundle exec rubocop -D -R -c .rubocop.yml
+      - run: bundle exec rake
