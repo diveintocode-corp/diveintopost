@@ -12,7 +12,6 @@ class ArticlesController < ApplicationController
   def new
     @agenda = Agenda.find(params[:agenda_id])
     @article = Article.new
-
   end
 
   def edit
