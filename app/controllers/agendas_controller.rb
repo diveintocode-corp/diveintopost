@@ -21,6 +21,7 @@ class AgendasController < ApplicationController
   end
 
   private
+
   def set_agenda
     @agenda = Agenda.find(params[:id])
   end
