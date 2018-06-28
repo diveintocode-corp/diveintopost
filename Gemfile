@@ -16,6 +16,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'webpacker', '~> 3.5'
 
 # Backend
+gem 'carrierwave'
 gem 'jbuilder', '~> 2.5'
 gem 'mini_magick', '~> 4.8'
 # gem 'redis', '~> 4.0'
