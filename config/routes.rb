@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :teams do
     resources :assigns, only: %w(create)
+  end
+
+  resources :agendas do
     resources :articles, shallow: true
   end
 end

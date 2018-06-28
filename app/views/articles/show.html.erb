@@ -1,9 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= @article.team.name %></p>
-<p><%= @article.user.email %></p>
-<p><%= @article.title %></p>
-<%= simple_format(@article.content) %>
+<p>
+  <strong>team.name:</strong>
+  <%= @article.team.name %>
+</p>
+
+<p>
+  <strong>user.email:</strong>
+  <%= @article.user.email %>
+</p>
+
+<p>
+  <strong>title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <%= markdown(@article.content).html_safe %>
+</p>
+<%#= simple_format(@article.content) %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', team_articles_path(@article.team) %>
+<%= link_to 'Back', new_agenda_article_path(@article.team) %>

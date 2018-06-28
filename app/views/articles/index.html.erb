@@ -22,4 +22,8 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'New Article', new_agenda_article_path %>
+
+<% @agendas.each do |agenda| %>
+  <%#= link_to 'リンク', new_agenda_article_path(agenda) %>
+<% end %>

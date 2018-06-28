@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
+    @agendas = Agenda.all
     @articles = Article.all
   end
 
@@ -10,17 +11,25 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @team = Team.find(params[:team_id])
-    @article = Article.new
+    @agenda = Agenda.find(params[:agenda_id])
+    @team = Team.find(params[:agenda_id])
+    @article = @agenda.articles.build
   end
 
   def edit
   end
 
   def create
-    @team = Team.find(params[:team_id])
-    @article = @team.articles.build(article_params)
+    binding.pry
+    # @team = Team.find(params[:team_id])
+    @agenda = Agenda.find(params[:agenda_id])
+    # agenda_idを埋める
+    @article = @agenda.articles.build(article_params)
+    # user_idを埋める
     @article.user = current_user
+    # team_idを埋める
+    @article.team_id = @agenda.team_id
+
     if @article.save
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else
