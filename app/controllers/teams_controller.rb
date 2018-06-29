@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: %i(show edit update destroy)
+  before_action :set_team, only: %i[show edit update destroy]
 
   def index
     @teams = Team.all
@@ -44,6 +44,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.fetch(:team, {}).permit(:name)
+    params.fetch(:team, {}).permit%i[name]
   end
 end
