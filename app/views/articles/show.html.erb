@@ -4,6 +4,7 @@
 <p><%= @article.user.email %></p>
 <p><%= @article.title %></p>
 <%= simple_format(@article.content) %>
+<%= image_tag @article.image %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', agenda_articles_path(@article.agenda) %>
