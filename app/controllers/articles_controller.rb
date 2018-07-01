@@ -20,14 +20,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
-    # @team = Team.find(params[:team_id])
     @agenda = Agenda.find(params[:agenda_id])
-    # agenda_idを埋める
     @article = @agenda.articles.build(article_params)
-    # user_idを埋める
     @article.user = current_user
-    # team_idを埋める
     @article.team_id = @agenda.team_id
 
     if @article.save

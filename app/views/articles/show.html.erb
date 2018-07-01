@@ -18,7 +18,6 @@
 <p>
   <%= markdown(@article.content).html_safe %>
 </p>
-<%#= simple_format(@article.content) %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', new_agenda_article_path(@article.team) %>
