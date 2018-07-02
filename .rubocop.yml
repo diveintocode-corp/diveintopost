@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*
+    - bin/**/*
+    - vendor/**/*
+    - config/**/*
+    - lib/**/*
+    - node_modules/**/*
+    - Rakefile
+    # デフォルトのRspec修正がきついので一旦除外
+    - spec/**/*
+  TargetRubyVersion: 2.5
+Rails:
+  Enabled: true
+Style/AsciiComments:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+inherit_from: .rubocop_training.yml

@@ -1,14 +1,13 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
   def index
     @agendas = Agenda.all
     @articles = Article.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @agenda = Agenda.find(params[:agenda_id])
@@ -16,8 +15,7 @@ class ArticlesController < ApplicationController
     @article = @agenda.articles.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @agenda = Agenda.find(params[:agenda_id])
@@ -52,6 +50,8 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.fetch(:article, {}).permit(:title, :content)
+    params.fetch(:article, {}).permit %i[
+      title content
+    ]
   end
 end

@@ -3,4 +3,4 @@
 <%= render 'form', article: @article %>
 
 <%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back', agenda_articles_path(@article.agenda) %>
