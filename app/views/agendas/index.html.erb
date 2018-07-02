@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Agendas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agendas.includes(:articles).each do |agenda| %>
+      <table>
+        <tr>Agenda title:<%= agenda.title %></tr>
+        <br />
+        <% agenda.articles.each do |article| %>
+          <li>Article title:<%= article.title %></li>
+        <% end %>
+      </table>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agenda', new_team_agenda_path %>

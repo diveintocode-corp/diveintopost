@@ -17,7 +17,6 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.owner = current_user
-
     if @team.save
       redirect_to @team, notice: 'Team was successfully created.'
     else
@@ -45,6 +44,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.fetch(:team, {}).permit(:name)
+    params.fetch(:team, {}).permit %i[name]
   end
 end
