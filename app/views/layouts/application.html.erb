@@ -11,13 +11,9 @@
   <body>
     <header>
       <% if !user_signed_in? %>
-        <button>
-          <%= link_to 'Sign up »', new_user_registration_path %>
-        </button>
-	  <% else %>
-        <button>
-          <%= link_to 'Logout »', destroy_user_session_path, method: :delete %>
-        </button>
+       <button>
+         <%= link_to 'Logout »', destroy_user_session_path, method: :delete %>
+       </button>
 	  <% end %>
     </header>
     <%= yield %>
