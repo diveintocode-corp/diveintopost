@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <header>
+      <% if !user_signed_in? %>
+        <button>
+          <%= link_to 'Logout »', destroy_user_session_path, method: :delete %>
+        </button>
+      <% end %>
+    </header>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>
   </body>
