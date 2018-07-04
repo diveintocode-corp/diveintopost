@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2018_06_28_131653) do
+ActiveRecord::Schema.define(version: 2018_07_04_062756) do
 
   enable_extension "plpgsql"
 
@@ -41,7 +41,9 @@ ActiveRecord::Schema.define(version: 2018_06_28_131653) do
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug", null: false
     t.index ["owner_id"], name: "index_teams_on_owner_id"
+    t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
