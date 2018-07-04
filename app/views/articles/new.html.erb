@@ -18,6 +18,10 @@
   <div>
     <%= form.text_area :content %>
   </div>
+  <div>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

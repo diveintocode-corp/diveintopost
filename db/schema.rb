@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2018_06_07_033457) do
+ActiveRecord::Schema.define(version: 2018_06_28_131653) do
 
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_033457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "agenda_id"
+    t.string "image"
     t.index ["agenda_id"], name: "index_articles_on_agenda_id"
     t.index ["team_id"], name: "index_articles_on_team_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
