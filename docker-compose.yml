@@ -1,0 +1,39 @@
+version: '2'
+services:
+  app:
+    container_name: diveintopost
+    build: .
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'password'
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/diveintopost
+    depends_on:
+      - postgresql
+  # db:
+  #   image: postgres
+  # redis:
+  #   container_name: diveintopost_redis
+  #   image: redis:3.2.3-alpine
+  #   ports:
+  #     - 127.0.0.1:6379:6379
+  #   volumes:
+  #     - ./redis_data:/data
+  #   command: redis-server --appendonly yes
+  # worker:
+  #   image: diveintopost_app:latest
+  #   command: bundle exec sidekiq -C config/sidekiq.yml -c 4 -L log/sidekiq.log
+  #   volumes:
+  #     - .:/app
+  #   links:
+  #     - redis
+  postgresql:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRESQL_PASSWORD: 'password'
+      TZ: 'Asia/Tokyo'
+    ports:
+      - '5432:5432'
