@@ -2,6 +2,8 @@
   <!-- Control sidebar content goes here -->
   <div class="p-3">
     <h5>Menu</h5>
-    <p>Sidebar content</p>
+    <% if user_signed_in? %>
+      <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
+    <% end %>
   </div>
 </aside>
