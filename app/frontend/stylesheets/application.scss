@@ -1,0 +1,10 @@
+// この二つだけならうまくいく（もうこれでいいかな・・・）
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'admin-lte/dist/css/AdminLTE.min.css';
+
+// fontが読み込めないのでバグる
+//  Module not found: Error: Can't resolve '../fonts/fontawesome-webfont.eot' in '/Users/shibatadaiki/work_shiba/diveintopost/app/frontend/stylesheets'
+// @import 'font-awesome/css/font-awesome.min.css';
+
+// そもそも3系のadminlteだとskin-blueがデフォで入らないぽい？
+// @import 'admin-lte/dist/css/skins/skin-blue.min.css'
