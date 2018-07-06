@@ -19,7 +19,8 @@ default: &default
   encoding: unicode
   # ToDo pidファイルをあらかじめ削除するコマンドを書き込んでおく必要あり
   # Wearning hostつながないと設定できない
-  host: 'postgresql'
+  # Dockerを使う際はここのhostを通す（ToDo いちいちコメントアウト弄るのはおかしいので、そうしなくて住む設定をpid修正の時に追記して設定安定させたい）
+  # host: 'postgresql'
   username: 'postgres'
   password: 'password'
   port: 5432
