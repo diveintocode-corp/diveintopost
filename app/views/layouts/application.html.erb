@@ -12,68 +12,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <%= csp_meta_tag %>
 
     <title>diveintopost</title>
-
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
 
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
+      <%= render 'shared/layout/header' %>
+      <%= render 'shared/layout/sidebar' %>
 
-      <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-              <i class="fa fa-th-large"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.navbar -->
-
-      <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-          <span class="brand-text font-weight-light">DIVE INTO POST</span>
-        </a>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-th"></i>
-                  <p>Sample</p>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-      </aside>
-
-      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <%= yield %>
       </div>
-      <!-- /.content-wrapper -->
 
-      <!-- Main Footer -->
-      <footer class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-inline">
-          Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2016-2018 <a href="https://diveintocode.jp">DIVEINTOPOST</a>.</strong> All rights reserved.
-      </footer>
+      <%= render 'shared/layout/footer' %>
     </div>
-    
+
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
