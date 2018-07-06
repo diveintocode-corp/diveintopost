@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <%= csp_meta_tag %>
 
     <title>diveintopost</title>
-    
+
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
@@ -21,6 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="wrapper">
       <%= render 'shared/layout/header' %>
       <%= render 'shared/layout/sidebar' %>
+      <%= render 'shared/layout/menu' %>
 
       <div class="content-wrapper">
         <%= yield %>
