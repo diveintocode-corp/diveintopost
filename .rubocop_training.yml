@@ -1,0 +1,66 @@
+# Rubocop詳細設定
+Metrics/AbcSize:
+  Max: 70
+  # これらのルールを除外したいファイルがある場合はExcludeで指定する
+  # Exclude:
+
+Metrics/BlockLength:
+  Max: 400
+
+Metrics/BlockNesting:
+  Max: 5
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/LineLength:
+  Max: 250
+
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/ParameterLists:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    # - staging
+
+# 不要なものはEnabled: falseで設定を除外する
+
+Rails/ApplicationRecord:
+  Description: 'Check that models subclass ApplicationRecord.'
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+# Naming/VariableNumber:
+#   Enabled: false
+#
+# Style/FrozenStringLiteralComment:
+#   Enabled: false
+#
+# Style/SafeNavigation:
+#   Enabled: false
+#
+# Style/NumericPredicate:
+#   Enabled: false
+#
+# Performance/RegexpMatch:
+#   Enabled: false

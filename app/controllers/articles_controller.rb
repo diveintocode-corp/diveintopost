@@ -1,25 +1,24 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
   def index
     @articles = Article.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
-    @team = Team.find(params[:team_id])
+    @agenda = Agenda.find(params[:agenda_id])
     @article = Article.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
-    @team = Team.find(params[:team_id])
-    @article = @team.articles.build(article_params)
+    @agenda = Agenda.find(params[:agenda_id])
+    @article = @agenda.articles.build(article_params)
+    @article.team_id = @agenda.team_id
     @article.user = current_user
     if @article.save
       redirect_to article_url(@article), notice: 'Article was successfully created.'
@@ -48,6 +47,8 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.fetch(:article, {}).permit(:title, :content)
+    params.fetch(:article, {}).permit %i[
+      title content image image_cache
+    ]
   end
 end

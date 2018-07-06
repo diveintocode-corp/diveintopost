@@ -5,14 +5,17 @@
 ## バージョン
 * Ruby 2.5.1
 * Ruby on Rails 5.2.0
+* psql (PostgreSQL) 9.6.3
 
 ## 準備
 
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
+$ yarn intstall # まだ環境にyarnが入っていなかったら
 $ bundle install --path vendor/bundle
 $ rails db:create db:migrate
+$ rails db:seed_fu
 ```
 
 ## アプリケーション実行
