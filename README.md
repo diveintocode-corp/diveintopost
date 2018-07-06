@@ -12,6 +12,7 @@
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
+$ yarn intstall # まだ環境にyarnが入っていなかったら
 $ bundle install --path vendor/bundle
 $ rails db:create db:migrate
 ```
