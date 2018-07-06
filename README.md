@@ -15,6 +15,7 @@ $ cd diveintopost
 $ yarn intstall # まだ環境にyarnが入っていなかったら
 $ bundle install --path vendor/bundle
 $ rails db:create db:migrate
+$ rails db:seed_fu
 ```
 
 ## アプリケーション実行
