@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<<<<<<< HEAD
 <p>
   <strong>team.name:</strong>
   <%= @article.team.name %>
@@ -18,6 +19,13 @@
 <p>
   <%= markdown(@article.content).html_safe %>
 </p>
+=======
+<p><%= @article.team.name %></p>
+<p><%= @article.user.email %></p>
+<p><%= @article.title %></p>
+<%= simple_format(@article.content) %>
+<%= image_tag @article.image_url %>
+>>>>>>> develop
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', agenda_articles_path(@article.agenda) %>

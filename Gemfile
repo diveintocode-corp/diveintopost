@@ -18,8 +18,11 @@ gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
 
 # Backend
+gem 'carrierwave'
 gem 'jbuilder', '~> 2.5'
 gem 'mini_magick', '~> 4.8'
+gem 'seed-fu', '~> 2.3'
+# gem 'rmagick'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
