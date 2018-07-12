@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="ja">
   <head>
-    <title>Keijiban</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <title>diveintopost</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
 
-  <body>
-    <header>
-      <% if !user_signed_in? %>
-        <button>
-          <%= link_to 'Logout »', destroy_user_session_path, method: :delete %>
-        </button>
-      <% end %>
-    </header>
-    <%= yield %>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <%= render 'shared/layout/header' %>
+      <%= render 'shared/layout/sidebar' %>
+      <%= render 'shared/layout/menu' %>
+
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+
+      <%= render 'shared/layout/footer' %>
+    </div>
+
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>

@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "admin-lte": "^3.0.0-alpha.2",
     "import-glob-loader": "^1.1.0",
     "rails-ujs": "^5.2.0"
   },

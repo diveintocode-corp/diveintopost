@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
+    @agendas = Agenda.all
     @articles = Article.all
   end
 
@@ -10,7 +11,8 @@ class ArticlesController < ApplicationController
 
   def new
     @agenda = Agenda.find(params[:agenda_id])
-    @article = Article.new
+    @team = Team.find(params[:agenda_id])
+    @article = @agenda.articles.build
   end
 
   def edit; end
@@ -18,8 +20,9 @@ class ArticlesController < ApplicationController
   def create
     @agenda = Agenda.find(params[:agenda_id])
     @article = @agenda.articles.build(article_params)
-    @article.team_id = @agenda.team_id
     @article.user = current_user
+    @article.team_id = @agenda.team_id
+
     if @article.save
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else

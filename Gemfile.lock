@@ -254,6 +254,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (2.3.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -307,6 +308,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -378,6 +382,7 @@ DEPENDENCIES
   capybara
   carrierwave
   chromedriver-helper
+  coderay
   database_cleaner
   devise
   factory_bot_rails
@@ -395,11 +400,13 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.0)
   rails-controller-testing
+  redcarpet (~> 2.3.0)
   rspec-parameterized
   rspec-rails
   rspec-retry
   rubocop
   sass-rails (~> 5.0)
+  seed-fu (~> 2.3)
   selenium-webdriver
   shoulda-matchers
   spring
