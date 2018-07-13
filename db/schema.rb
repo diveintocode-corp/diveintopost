@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2018_07_13_003227) do
+ActiveRecord::Schema.define(version: 2018_07_13_005449) do
 
   enable_extension "plpgsql"
 
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_07_13_003227) do
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.string "icon"
     t.index ["owner_id"], name: "index_teams_on_owner_id"
   end
 

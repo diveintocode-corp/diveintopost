@@ -14,6 +14,10 @@
   <div>
     <%= form.text_field :name %>
   </div>
+  <div>
+    <%= form.file_field :icon %>
+    <%= form.hidden_field :icon_cache %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
