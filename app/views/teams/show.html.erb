@@ -2,6 +2,8 @@
 <%= @team.name %>
 
 <hr>
+
+<p><%= image_tag @team.icon_url %></p>
 <h2>チームメンバー</h2>
 <ul>
   <% @team.members.each do |member| %>
