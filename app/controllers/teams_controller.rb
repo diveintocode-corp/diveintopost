@@ -44,6 +44,8 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.fetch(:team, {}).permit %i[name]
+    params.fetch(:team, {}).permit %i[
+      name image image_cache
+    ]
   end
 end
