@@ -19,6 +19,7 @@ gem 'webpacker', '~> 3.5'
 
 # Backend
 gem 'carrierwave'
+gem 'friendly_id', '~> 5.1.0'
 gem 'jbuilder', '~> 2.5'
 gem 'mini_magick', '~> 4.8'
 gem 'seed-fu', '~> 2.3'
