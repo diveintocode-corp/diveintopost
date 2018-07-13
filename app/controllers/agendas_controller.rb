@@ -6,7 +6,7 @@ class AgendasController < ApplicationController
   end
 
   def new
-    @team = Team.find(params[:team_id])
+    @team = Team.friendly.find(params[:team_id])
     @agenda = Agenda.new
   end
 
