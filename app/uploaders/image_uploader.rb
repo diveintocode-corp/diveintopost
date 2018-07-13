@@ -10,6 +10,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def default_url
+    "default.jpg"
+  end
+
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_limit: [200, 200]
