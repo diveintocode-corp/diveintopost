@@ -11,7 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "default.jpg"
+    'default.jpg'
   end
 
   # Create different versions of your uploaded files:
