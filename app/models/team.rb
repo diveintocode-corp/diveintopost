@@ -7,6 +7,7 @@ class Team < ApplicationRecord
   has_many :members, through: :assigns, source: :user
   has_many :articles, dependent: :destroy
   has_many :agendas, dependent: :destroy
+  mount_uploader :icon, ImageUploader
 
   def invite_member(user)
     assigns.create(user: user)
