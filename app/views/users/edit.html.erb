@@ -1,4 +1,4 @@
-<%= form_with(model: @user, local: true, url:user_registration_path ) do |form| %>
+<%= form_with(model: @user, local: true, url:user_path ) do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= @user.errors.count %>error(s) occured.</h2>

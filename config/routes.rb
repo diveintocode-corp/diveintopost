@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  get 'user/edit' => 'users#edit'
+  resource :user
 
   resources :teams do
     resources :assigns, only: %w(create destroy)
