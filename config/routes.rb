@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/edit'
   root 'statics#top'
   get :dashboard, to: 'teams#dashboard'
 
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
+  get 'user/edit' => 'users#edit'
 
   resources :teams do
     resources :assigns, only: %w(create destroy)
