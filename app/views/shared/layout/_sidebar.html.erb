@@ -9,12 +9,26 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-th"></i>
-            <p>Sample</p>
-          </a>
-        </li>
+        <% @team.agendas.each do |agenda| %>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              <i class="fa fa-circle-o nav-icon"></i>
+              <p>
+                <%= agenda.title %>
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: block;">
+              <% agenda.articles.each do |article| %>
+                <li class="nav-item">
+                  <%= link_to article_path(article), class: 'nav-link' do %>
+                    <p><%= article.title %></p>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
