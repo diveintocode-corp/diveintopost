@@ -15,9 +15,4 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(html_render, options)
     markdown.render(text)
   end
-
-  # FIXME: dashboardに戻るURLは要検討
-  def back_to_dashboard_url
-    team_url(current_user.teams.first) if user_signed_in?
-  end
 end

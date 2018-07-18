@@ -37,6 +37,10 @@ class TeamsController < ApplicationController
     redirect_to teams_url, notice: 'Team was successfully destroyed.'
   end
 
+  def dashboard
+    @team = current_user.teams.first
+  end
+
   private
 
   def set_team
