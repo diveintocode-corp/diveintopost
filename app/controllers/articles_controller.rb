@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
   def new
     @agenda = Agenda.find(params[:agenda_id])
-    @team = Team.find(params[:agenda_id])
+    @team = @agenda.team
     @article = @agenda.articles.build
   end
 

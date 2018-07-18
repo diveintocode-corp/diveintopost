@@ -6,6 +6,19 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3">
+      <div class="info">
+        <a href="#" class="d-block mb-1">アジェンダ作成</a>
+        <%= form_with model: :agenda, scope: :post, url: team_agendas_path(@team), local: true do |form| %>
+          <div class="input-group input-group-sm">
+            <%= text_field_tag :title, '', { class: 'form-control', placeholder: 'タイトル入力' } %>
+            <span class="input-group-append">
+              <button type="submit" class="btn btn-info btn-flat">作成</button>
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -26,6 +39,11 @@
                   <% end %>
                 </li>
               <% end %>
+              <li class="nav-item">
+                <%= link_to new_agenda_article_path(agenda), class: 'nav-link' do %>
+                  <p>+ 記事を作成する</p>
+                <% end %>
+              </li>
             </ul>
           </li>
         <% end %>
