@@ -3,7 +3,7 @@
   <div class="p-3">
     <% if user_signed_in? %>
       <h5>Menu</h5>
-      <p><%= link_to 'マイページ', '#' %></p>
+      <p><%= link_to 'マイページ', user_path %></p>
       <p><%= link_to 'チーム作成', new_team_path %></p>
 
       <h5>チーム選択</h5>
