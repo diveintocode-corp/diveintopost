@@ -9,7 +9,7 @@
     <div class="user-panel mt-3 pb-3 mb-3">
       <div class="info">
         <a href="#" class="d-block mb-1">アジェンダ作成</a>
-        <%= form_with model: :agenda, scope: :post, url: team_agendas_path(@team), local: true do |form| %>
+        <%= form_with model: :agenda, scope: :post, url: team_agendas_path(@working_team), local: true do |form| %>
           <div class="input-group input-group-sm">
             <%= text_field_tag :title, '', { class: 'form-control', placeholder: 'タイトル入力' } %>
             <span class="input-group-append">
@@ -22,7 +22,7 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <% @team.agendas.each do |agenda| %>
+        <% @working_team.agendas.each do |agenda| %>
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="fa fa-circle-o nav-icon"></i>
