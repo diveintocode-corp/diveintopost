@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  def after_sign_in_path_for(resource)
-    team_url(resource.teams.first)
+  def after_sign_in_path_for(_resource)
+    dashboard_url
   end
 end
