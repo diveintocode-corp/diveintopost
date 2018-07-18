@@ -1,9 +1,24 @@
 <aside class="control-sidebar control-sidebar-dark">
   <!-- Control sidebar content goes here -->
   <div class="p-3">
-    <h5>Menu</h5>
     <% if user_signed_in? %>
-      <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
+      <h5>Menu</h5>
+      <p><%= link_to 'マイページ', '#' %></p>
+      <p><%= link_to 'チーム作成', new_team_path %></p>
+
+      <h5>チーム選択</h5>
+      <% current_user.teams.each do |team| %>
+        <%= link_to team_path(team) do %>
+          <p>
+            <%= image_tag default_img(team.icon_url), size: '30x30' %>&nbsp;
+            <%= team.name %>
+          </p>
+        <% end %>
+      <% end %>
+
+      <p>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-block' %>
+      </p>
     <% end %>
   </div>
 </aside>
