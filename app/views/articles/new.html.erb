@@ -1,31 +1,18 @@
-<h1>New Article</h1>
-
-<%= form_with(model: @article, url: agenda_articles_path(@agenda), local: true) do |form| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          記事を作成する
+        </h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <%= render 'form', article: @article %>
+      </div>
+      <!-- /.card-body -->
     </div>
-  <% end %>
-  <div>
-    <%= form.text_field :title %>
+    <!-- /.card -->
   </div>
-  <div>
-    <%= form.text_area :content %>
-  </div>
-  <div>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', agenda_articles_path(@agenda) %>
+  <!-- ./col -->
+</div>
