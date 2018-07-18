@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>team.name:</strong>
-  <%= @article.team.name %>
-</p>
-
-<p>
-  <strong>user.email:</strong>
-  <%= @article.user.email %>
-</p>
-
-<p>
-  <strong>title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <%= markdown(@article.content).html_safe %>
-</p>
-<%#= image_tag @article.image_url %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', agenda_articles_path(@article.agenda) %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <%= @article.title %>
+        </h3>
+        <%= @article.user.email %>
+        <%= l(@article.created_at, format: :long) %>
+        <%= link_to '編集', edit_article_path(@article) %>
+        <%= link_to '削除', article_path(@article), method: :delete %>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <%= markdown(@article.content).html_safe %>
+        <%= image_tag @article.image_url if @article.image_url %>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+</div>
