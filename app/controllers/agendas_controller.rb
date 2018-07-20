@@ -11,10 +11,10 @@ class AgendasController < ApplicationController
   end
 
   def create
-    @agenda = current_user.agendas.build(agenda_params)
-    @agenda.team_id = params[:team_id]
+    @agenda = current_user.agendas.build(title: params[:title])
+    @agenda.team = Team.friendly.find(params[:team_id])
     if @agenda.save
-      redirect_to team_agendas_url(@agenda), notice: 'Agenda was successfully created.'
+      redirect_to dashboard_url, notice: 'Agenda was successfully created.'
     else
       render :new
     end

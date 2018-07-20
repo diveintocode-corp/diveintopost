@@ -24,7 +24,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <%= render 'shared/layout/menu' %>
 
       <div class="content-wrapper">
-        <%= yield %>
+        <div class="content">
+          <%= yield %>
+        </div>
       </div>
 
       <%= render 'shared/layout/footer' %>

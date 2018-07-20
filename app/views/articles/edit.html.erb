@@ -1,6 +1,18 @@
-<h1>Editing Article</h1>
-
-<%= render 'form', article: @article %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', agenda_articles_path(@article.agenda) %>
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          記事を編集する
+        </h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <%= render 'form', article: @article %>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+</div>

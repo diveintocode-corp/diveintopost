@@ -15,4 +15,12 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(html_render, options)
     markdown.render(text)
   end
+
+  def select_posting_article_path(article)
+    if article.new_record?
+      agenda_articles_path(article.agenda, article)
+    else
+      article_path(article)
+    end
+  end
 end

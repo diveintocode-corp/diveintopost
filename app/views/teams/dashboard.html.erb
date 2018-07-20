@@ -1,0 +1,54 @@
+<div class="row mt-3">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-title p-1">
+        最近投稿された記事
+      </div>
+      <div class="card-body p-0">
+        <table class="table">
+          <tbody>
+            <% @team.articles.each do |article| %>
+              <tr>
+                <td><%= image_tag default_img(nil), size: '40x40' %></td>
+                <td>
+                  <%= link_to article_path(article) do %>
+                    <span class="badge bg-primary"><%= article.agenda.title %></span>
+                    <%= article.title %>
+                  <% end %>
+                  <br>
+                  <%= l(article.created_at, format: :long) %>に投稿
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-title p-1">
+        チームメンバー一覧
+      </div>
+      <div class="card-body p-0">
+        <table class="table">
+          <tbody>
+            <% @team.members.each do |member| %>
+              <tr>
+                <td><%= image_tag default_img(nil), size: '40x40' %></td>
+                <td><%= member.email %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- ./col -->
+</div>
