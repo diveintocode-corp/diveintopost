@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/edit'
   root 'statics#top'
   get :dashboard, to: 'teams#dashboard'
 
