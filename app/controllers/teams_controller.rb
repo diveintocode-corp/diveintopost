@@ -38,7 +38,8 @@ class TeamsController < ApplicationController
   end
 
   def dashboard
-    @team = current_user.teams.first
+    # FIXME: 暫定的にteamに値を入れる処理をかませる
+    @team = current_user.teams.blank? ? Team.first : current_user.teams.first
   end
 
   private

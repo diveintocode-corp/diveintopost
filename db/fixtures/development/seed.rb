@@ -14,7 +14,7 @@ User.seed(
 
 Team.seed(
   :id,
-  { id: 1, owner_id: 1, name: Faker::App.name.delete(' ') },
+  { id: 1, owner_id: 1, name: 'BasicTeam' },
   { id: 2, owner_id: 2, name: Faker::App.name.delete(' ') },
   id: 3, owner_id: 1, name: Faker::App.name.delete(' ')
 )

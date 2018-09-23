@@ -7,7 +7,7 @@
       <p><%= link_to 'チーム作成', new_team_path %></p>
 
       <h5>チーム選択</h5>
-      <% current_user.teams.each do |team| %>
+      <% (current_user.teams.blank? ? Team.where(id: 1) : current_user.teams).each do |team| %>
         <%= link_to team_path(team) do %>
           <p>
             <%= image_tag default_img(team.icon_url), size: '30x30' %>&nbsp;

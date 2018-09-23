@@ -20,7 +20,7 @@
                 <tbody>
                   <% @user.teams.each do |team| %>
                     <tr>
-                      <td><%= image_tag default_img(@team.icon_url), size: '40x40' %></td>
+                      <td><%= image_tag default_img(team.icon_url), size: '40x40' %></td>
                       <td><%= team.name %></td>
                     </tr>
                   <% end %>
