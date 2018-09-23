@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to user_path, notice: "プロフィールを編集しました！"
+      redirect_to user_path, notice: 'プロフィールを編集しました！'
     else
       render 'edit'
     end
@@ -16,8 +16,8 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-
   private
+  
   def user_params
     params.require(:user).permit(:email, :icon)
   end
