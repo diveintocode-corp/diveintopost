@@ -21,8 +21,8 @@ default: &default
   # Wearning hostつながないと設定できない
   # Dockerを使う際はここのhostを通す（ToDo いちいちコメントアウト弄るのはおかしいので、そうしなくて住む設定をpid修正の時に追記して設定安定させたい）
   # host: 'postgresql'
-  username: 'postgres'
-  password: 'password'
+  #  username: 'postgres'
+  #  password: 'password'
   port: 5432
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
