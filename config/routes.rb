@@ -16,6 +16,4 @@ Rails.application.routes.draw do
       resources :articles
     end
   end
-
-  resource :user, only: %w(show)
 end
