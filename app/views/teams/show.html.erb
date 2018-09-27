@@ -27,6 +27,13 @@
             </div>
 
             <div class="mt-4">
+              <h5>チームリーダー</h5>
+              <table class="table">
+                <tr>
+                  <td><%= image_tag 'default.jpg', size: '40x40' %></td>
+                  <td><label style="background-color: red">リーダー</label>：<%= @team.owner.email %></td>
+                </tr>
+              </table>
               <h5>チームメンバー</h5>
               <table class="table">
                 <tbody>
