@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_104122) do
+ActiveRecord::Schema.define(version: 2018_09_26_052051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2018_07_31_104122) do
     t.index ["user_id"], name: "index_assigns_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "owner_id"
@@ -83,5 +91,6 @@ ActiveRecord::Schema.define(version: 2018_07_31_104122) do
   add_foreign_key "articles", "users"
   add_foreign_key "assigns", "teams"
   add_foreign_key "assigns", "users"
+  add_foreign_key "comments", "articles"
   add_foreign_key "teams", "users", column: "owner_id"
 end

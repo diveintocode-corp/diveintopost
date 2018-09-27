@@ -7,7 +7,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show; end
+  def show
+    @comments = @article.comments
+    @comment = @article.comments.build
+  end
 
   def new
     @agenda = Agenda.find(params[:agenda_id])
