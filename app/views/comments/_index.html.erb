@@ -3,6 +3,10 @@
     <% if comment.id.present? %>
       <li>
         <p><%= comment.content %></p>
+        <p>投稿者：<%= comment.user.email %></p>
+        <% if comment.user == current_user %>
+          <p><%= link_to 'コメントを削除する', method: :delete, remote: true %></p>
+        <% end %>
       </li>
     <% end %>
   <% end %>
