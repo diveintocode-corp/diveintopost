@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # FIXME: 暫定的にteamに値を入れる処理をかませる。
   # 紐づいているTeamが一件もなかった場合、最初のTeam（BasicTeam（初期チーム））を登録する
   def set_working_team
-    @working_team = current_user.teams.blank? ? Team.first : current_user.teams.first
+    @working_team = Team.first
   end
 
   def init_team
