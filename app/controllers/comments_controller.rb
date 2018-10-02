@@ -16,11 +16,17 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      respond_to do |format|
+        format.js { render :index }
+      end
+    end
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:article_id, :content)
+    params.require(:comment).permit(:article_id, :content, :article_id)
   end
 end

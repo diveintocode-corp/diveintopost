@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
     @comments = @article.comments
     @comment = @article.comments.build
   end
@@ -49,6 +50,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
+    # binding.pry
     @article = Article.find(params[:id])
   end
 
