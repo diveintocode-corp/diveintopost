@@ -13,8 +13,10 @@ class User < ApplicationRecord
   def self.find_or_create_by_email(email)
     user = find_or_initialize_by(email: email)
     if user.new_record?
-      user.password = generate_password
-      user.save
+      sample = generate_password
+      user.password = sample
+      user.save!
+      AssignMailer.assign_mail(user, sample).deliver
     end
     user
   end
