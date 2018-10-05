@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
     if @user.keep_team_id == nil
       select_team_url
     else
-      dashboard_url
+      team_url(@user.keep_team_id)
     end
   end
 end
