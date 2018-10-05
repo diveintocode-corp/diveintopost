@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :agendas, dependent: :destroy
 
+  belongs_to :keep_team, class_name: 'Team', foreign_key: :keep_team_id
+
   mount_uploader :icon, ImageUploader
 
   def self.find_or_create_by_email(email)

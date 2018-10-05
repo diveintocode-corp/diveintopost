@@ -8,6 +8,9 @@ class TeamsController < ApplicationController
 
   def show
     @working_team = @team
+    @keep_team = @team.id
+    @user = current_user
+    @user.keep_team_id = @keep_team
   end
 
   def new
@@ -53,7 +56,7 @@ class TeamsController < ApplicationController
 
   def team_params
     params.fetch(:team, {}).permit %i[
-      name icon icon_cache owner_id
+      name icon icon_cache owner_id keep_team_id
     ]
   end
 end
