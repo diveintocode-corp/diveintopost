@@ -3,9 +3,15 @@
     <% if comment.id.present? %>
       <li>
         <p><%= comment.content %></p>
-        <p>投稿者：<%= comment.user.email %></p>
-        <% if comment.user == current_user %>
+        <% if Assign.where(user_id: comment.user_id).find_by(team_id: comment.article.team_id).present? %>
+          <p>投稿者：<%= comment.user.email %></p>
+        <% else %>
+          <p>このユーザーは退会しました</p>
+        <% end %>
+        
+        <% if comment.user == current_user || current_user == Team.where(user_id: 1) %>
           <p><%= link_to 'コメントを削除する',comment_path(comment), method: :delete, remote: true %></p>
+          <p><%= link_to 'コメントを編集する',edit_comment_path(comment) %></p>
         <% end %>
       </li>
     <% end %>

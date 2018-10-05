@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
     @article = @agenda.articles.build(article_params)
     @article.user = current_user
     @article.team_id = @agenda.team_id
-
     if @article.save
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else
