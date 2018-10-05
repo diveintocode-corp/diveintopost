@@ -12,6 +12,12 @@ class AssignsController < ApplicationController
     @assign = Assign.find(params[:id])
     @assign.destroy
     redirect_to team_url(params[:team_id]), notice: 'メンバーを削除しました。'
+    if @assign.user_id == @team.owner_id
+      redirect_to team_url(params[:team_id]), notice: 'リーダーは削除できません。'
+    else
+      @assign.destroy
+      redirect_to team_url(params[:team_id]), notice: 'メンバーを削除しました。'
+    end
   end
 
   private
