@@ -8,9 +8,8 @@ class TeamsController < ApplicationController
 
   def show
     @working_team = @team
-    @keep_team = @team.id
-    @user = current_user
-    @user.keep_team_id = @keep_team
+    current_user.keep_team_id = @team.id
+    current_user.save
   end
 
   def new

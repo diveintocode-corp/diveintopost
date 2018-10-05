@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def select_team
+    @teams = Team.all
+  end
+
   private
 
   def user_params

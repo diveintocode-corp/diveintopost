@@ -1,0 +1,7 @@
+<h2>チームを選択</h2>
+<% @teams.each do |team| %>
+  <ul class="list-group">
+  	<li class="list-group-item"><%= team.name %><br>
+    <%= link_to 'Show', team %></li>
+  </ul>
+<% end %>
