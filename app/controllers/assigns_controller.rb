@@ -3,7 +3,8 @@ class AssignsController < ApplicationController
 
   def create
     team = Team.friendly.find(params[:team_id])
-    if user = User.find_or_create_by_email(assign_params)
+    user = User.find_or_create_by_email(assign_params)
+    if user
       team.invite_member(user)
       redirect_to team_url(team), notice: 'Completed assign!'
     else
