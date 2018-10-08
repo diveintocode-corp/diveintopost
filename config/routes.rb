@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'statics#top'
   get :dashboard, to: 'teams#dashboard'
-  get :select_team, to:'users#select_team'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

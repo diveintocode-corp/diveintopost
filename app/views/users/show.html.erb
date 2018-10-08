@@ -22,6 +22,7 @@
                     <tr>
                       <td><%= image_tag default_img(team.icon_url), size: '40x40' %></td>
                       <td><%= team.name %></td>
+                      <td><%= link_to 'チーム選択', team %></td>
                     </tr>
                   <% end %>
                 </tbody>
