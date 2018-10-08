@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(_resource)
     keep_team = @user.keep_team_id
-    if keep_team == nil
+    unless keep_team
       if @user.teams.count == 1
         team_url(@user.teams.first)
       else
