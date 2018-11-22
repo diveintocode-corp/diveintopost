@@ -7,16 +7,21 @@ class User < ApplicationRecord
   has_many :teams, through: :assigns
   has_many :articles, dependent: :destroy
   has_many :agendas, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   mount_uploader :icon, ImageUploader
 
   def self.find_or_create_by_email(email)
-    user = find_or_initialize_by(email: email)
-    if user.new_record?
-      user.password = generate_password
-      user.save
+    if email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
+      user = find_or_initialize_by(email: email)
+      if user.new_record?
+        user.password = generate_password
+        user.save
+      end
+      user
+    else
+      user
     end
-    user
   end
 
   def self.generate_password
