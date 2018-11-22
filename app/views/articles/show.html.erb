@@ -17,6 +17,16 @@
         <%= markdown(@article.content).html_safe %>
         <%= image_tag @article.image_url if @article.image_url %>
       </div>
+
+      <p>コメント一覧</p>
+      <div id="comments_area">
+  <!-- 投稿されたコメント一覧をarticleの詳細ページに表示するためのrender -->
+        <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+      </div>
+
+  <!-- コメント入力欄をarticleの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
