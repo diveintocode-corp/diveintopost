@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2018_10_05_035232) do
     t.index ["user_id"], name: "index_assigns_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "owner_id"
@@ -84,5 +93,6 @@ ActiveRecord::Schema.define(version: 2018_10_05_035232) do
   add_foreign_key "articles", "users"
   add_foreign_key "assigns", "teams"
   add_foreign_key "assigns", "users"
+  add_foreign_key "comments", "articles"
   add_foreign_key "teams", "users", column: "owner_id"
 end

@@ -13,9 +13,9 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    @team = Team.find(params[:id])
     @assign = Assign.find(params[:id])
-    if @assign.user_id == @team.owner_id
+    @team_leader = @assign.team.owner
+    if @assign.user_id == @team_leader.id
       redirect_to team_url(params[:team_id]), notice: 'リーダーは削除できません。'
     else
       @assign.destroy

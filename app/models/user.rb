@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :teams, through: :assigns
   has_many :articles, dependent: :destroy
   has_many :agendas, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   belongs_to :keep_team, optional: true, class_name: 'Team', foreign_key: :keep_team_id
 
