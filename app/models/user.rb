@@ -11,14 +11,16 @@ class User < ApplicationRecord
   mount_uploader :icon, ImageUploader
 
   def self.find_or_create_by_email(email)
-    user = find_or_initialize_by(email: email)
-    if user.new_record?
-      sample = generate_password
-      user.password = sample
-      user.save!
-      AssignMailer.assign_mail(user, sample).deliver
+    if email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
+      user = find_or_initialize_by(email: email)
+      if user.new_record?
+        user.password = generate_password
+        user.save
+      end
+      user
+    else
+      user
     end
-    user
   end
 
   def self.generate_password
