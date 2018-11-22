@@ -7,7 +7,11 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show; end
+  def show
+    @article = Article.find(params[:id])
+    @comments = @article.comments
+    @comment = @article.comments.build
+  end
 
   def new
     @agenda = Agenda.find(params[:agenda_id])
@@ -22,7 +26,6 @@ class ArticlesController < ApplicationController
     @article = @agenda.articles.build(article_params)
     @article.user = current_user
     @article.team_id = @agenda.team_id
-
     if @article.save
       redirect_to article_url(@article), notice: 'Article was successfully created.'
     else
@@ -46,6 +49,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
+    # binding.pry
     @article = Article.find(params[:id])
   end
 

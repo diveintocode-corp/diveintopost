@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :teams, through: :assigns
   has_many :articles, dependent: :destroy
   has_many :agendas, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   mount_uploader :icon, ImageUploader
 
