@@ -251,8 +251,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-ujs (0.1.0)
-      railties (>= 3.1)
     railties (5.2.0)
       actionpack (= 5.2.0)
       activesupport (= 5.2.0)
@@ -401,7 +399,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails
-  letter_opener
+  letter_opener_web
   listen (~> 3.0.5)
   mini_magick (~> 4.8)
   pg (>= 0.18, < 2.0)
@@ -411,7 +409,6 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.0)
   rails-controller-testing
-  rails-ujs
   redcarpet (~> 2.3.0)
   rspec-parameterized
   rspec-rails
