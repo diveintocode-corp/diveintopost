@@ -14,7 +14,7 @@ class AgendasController < ApplicationController
     @agenda = current_user.agendas.build(title: params[:title])
     @agenda.team = Team.friendly.find(params[:team_id])
     if @agenda.save
-      redirect_to dashboard_url, notice: 'Agenda was successfully created.'
+      redirect_to dashboard_url, notice: 'アジェンダ作成に成功しました！'
     else
       render :new
     end

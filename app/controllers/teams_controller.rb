@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
     @team.owner = current_user
     if @team.save
       @team.invite_member(@team.owner)
-      redirect_to @team, notice: 'Team was successfully created.'
+      redirect_to @team, notice: 'チーム作成に成功しました！'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to @team, notice: 'Team was successfully updated.'
+      redirect_to @team, notice: 'チーム更新に成功しました！'
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    redirect_to teams_url, notice: 'Team was successfully destroyed.'
+    redirect_to teams_url, notice: 'チーム削除に成功しました！'
   end
 
   def dashboard
