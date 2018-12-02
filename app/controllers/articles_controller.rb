@@ -11,7 +11,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comments = @article.comments
     @comment = @article.comments.build
-    current_user.keep_team_id = @article.team.id
+    @working_team = @article.team
+    current_user.keep_team_id = @working_team.id
     current_user.save!
   end
 
