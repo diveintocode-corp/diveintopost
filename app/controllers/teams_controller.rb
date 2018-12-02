@@ -25,6 +25,7 @@ class TeamsController < ApplicationController
       @team.invite_member(@team.owner)
       redirect_to @team, notice: 'チーム作成に成功しました！'
     else
+      flash.now[:error] = '保存に失敗しました、、'
       render :new
     end
   end
@@ -33,6 +34,7 @@ class TeamsController < ApplicationController
     if @team.update(team_params)
       redirect_to @team, notice: 'チーム更新に成功しました！'
     else
+      flash.now[:error] = '保存に失敗しました、、'
       render :edit
     end
   end
@@ -43,8 +45,7 @@ class TeamsController < ApplicationController
   end
 
   def dashboard
-    # FIXME: 暫定的にteamに値を入れる処理をかませる
-    @team = current_user.teams.blank? ? Team.first : current_user.teams.first
+    @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : Team.first
   end
 
   private
@@ -54,8 +55,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.fetch(:team, {}).permit %i[
-      name icon icon_cache owner_id keep_team_id
-    ]
+    params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
   end
 end

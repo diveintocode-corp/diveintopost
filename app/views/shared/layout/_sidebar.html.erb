@@ -8,6 +8,12 @@
   <div class="sidebar">
     <div class="user-panel mt-3 pb-3 mb-3">
       <div class="info">
+        <h3 style="color: white;"><%= @working_team.name.truncate(15) %></h3>
+      </div>
+    </div>
+
+    <div class="user-panel mt-3 pb-3 mb-3">
+      <div class="info">
         <a href="#" class="d-block mb-1">アジェンダ作成</a>
         <%= form_with model: :agenda, scope: :post, url: team_agendas_path(@working_team), local: true do |form| %>
           <div class="input-group input-group-sm">

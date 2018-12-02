@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comments = @article.comments
     @comment = @article.comments.build
+    current_user.keep_team_id = @article.team.id
+    current_user.save!
   end
 
   def new
@@ -19,7 +21,10 @@ class ArticlesController < ApplicationController
     @article = @agenda.articles.build
   end
 
-  def edit; end
+  def edit
+    current_user.keep_team_id = @article.team.id
+    current_user.save!
+  end
 
   def create
     @agenda = Agenda.find(params[:agenda_id])
@@ -49,13 +54,10 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    # binding.pry
     @article = Article.find(params[:id])
   end
 
   def article_params
-    params.fetch(:article, {}).permit %i[
-      title content image image_cache
-    ]
+    params.fetch(:article, {}).permit %i[title content image image_cache]
   end
 end

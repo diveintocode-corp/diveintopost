@@ -4,9 +4,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # FIXME: 暫定的にteamに値を入れる処理をかませる。
   def set_working_team
-    @working_team = Team.first
+    @working_team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
 
   def init_team

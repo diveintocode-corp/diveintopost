@@ -19,12 +19,13 @@
       </div>
 
       <p>コメント一覧</p>
-      <div id="comments_area">
-  <!-- 投稿されたコメント一覧をarticleの詳細ページに表示するためのrender -->
+      <div id="comments_area" class="comments_area_form">
+        <!-- 投稿されたコメント一覧をarticleの詳細ページに表示するためのrender -->
         <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
       </div>
 
-  <!-- コメント入力欄をarticleの詳細ページに表示するためのrender -->
+      <p>コメント投稿</p>
+      <!-- コメント入力欄をarticleの詳細ページに表示するためのrender -->
       <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
 
       <!-- /.card-body -->

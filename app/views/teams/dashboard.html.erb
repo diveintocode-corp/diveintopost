@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <div class="row mt-3">
   <div class="col-md-8">
     <div class="card">
@@ -12,6 +14,7 @@
                 <td><%= image_tag default_img(nil), size: '40x40' %></td>
                 <td>
                   <%= link_to article_path(article) do %>
+                    <span><%= article.team.name %>チーム　</span>
                     <span class="badge bg-primary"><%= article.agenda.title %></span>
                     <%= article.title %>
                   <% end %>
@@ -32,7 +35,7 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-title p-1">
-        チームメンバー一覧
+        <%= @team.name %>チームのメンバー一覧
       </div>
       <div class="card-body p-0">
         <table class="table">
