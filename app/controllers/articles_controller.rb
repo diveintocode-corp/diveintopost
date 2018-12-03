@@ -8,12 +8,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comments = @article.comments
     @comment = @article.comments.build
     @working_team = @article.team
-    current_user.keep_team_id = @working_team.id
-    current_user.save!
+    change_keep_team(current_user, @working_team)
   end
 
   def new
@@ -23,17 +21,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    current_user.keep_team_id = @article.team.id
-    current_user.save!
+    change_keep_team(current_user, @article.team)
   end
 
   def create
-    @agenda = Agenda.find(params[:agenda_id])
-    @article = @agenda.articles.build(article_params)
-    @article.user = current_user
-    @article.team_id = @agenda.team_id
-    if @article.save
-      redirect_to article_url(@article), notice: '記事作成に成功しました！'
+    agenda = Agenda.find(params[:agenda_id])
+    article = agenda.articles.build(article_params)
+    article.user = current_user
+    article.team_id = agenda.team_id
+    if article.save
+      redirect_to article_url(article), notice: '記事作成に成功しました！'
     else
       render :new
     end
