@@ -48,3 +48,12 @@ GitHub場でPull Requestを作成
 新しくissueを割り振られたらgit checkout developして新たにfeatureブランチを切る
 あとは臨機応変に
 ```
+
+## 自分のリポジトリで行う場合
+
+```
+自分のGitHubアカウントに、空のリポジトリを作成し、cloneしたアプリケーションをpushする（folkでも可）
+git remote addなどで、originという文字列と、URLを紐づける
+大元のissueを見ながら自分のローカルで機能開発を進め、自分のGitHubにPullRequestを提出する
+（この案件は、developブランチとfeatureブランチのみで行う形で、masterブランチはなくても構わない）
+```

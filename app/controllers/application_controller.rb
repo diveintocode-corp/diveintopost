@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_working_team
-    @working_team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
+    @working_team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : Team.first
   end
 
   def init_team
