@@ -33,7 +33,7 @@
             <p href="#" class="nav-link">
               <i class="fa fa-circle-o nav-icon"></i>
                 <%= agenda.title %>
-                <% if current_user.id == @working_team.owner_id || agenda.user.id %>
+                <% if current_user.id == (@working_team.owner_id || agenda.user.id) %>
                   <%= link_to 'アジェンダを削除', agenda_path(agenda.id), method: :delete %>
                 <% end %>
                 <i class="right fa fa-angle-left"></i>

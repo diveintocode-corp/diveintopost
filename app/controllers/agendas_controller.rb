@@ -22,6 +22,11 @@ class AgendasController < ApplicationController
   end
 
   def destroy
+
+    @agenda.team.members.each do |agenda|
+      AgendaMailer.agenda_mail(agenda.email).deliver
+    end
+
     @agenda.destroy
     redirect_to dashboard_url, notice: 'アジェンダを削除しました！'
   end
@@ -29,7 +34,7 @@ class AgendasController < ApplicationController
   private
 
   def set_agenda
-    if current_user.id == @working_team.owner_id || agenda.user.id
+    if current_user.id == (@working_team.owner_id || agenda.user.id)
       @agenda = Agenda.find(params[:id])
     end
   end
