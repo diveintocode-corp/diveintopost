@@ -30,6 +30,6 @@ class TeamTransferService < BaseService
 
   def validate
     @errors = []
-    true
+    @errors.length == 0
   end
 end

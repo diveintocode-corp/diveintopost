@@ -40,9 +40,6 @@ class AgendaCreateService < BaseService
     @errors.push('please login') unless User.current_user.present?
     @errors.push('title is not valid') unless agenda.present?
     @errors.push('team is not exists') unless team.present?
-
-    return User.current_user.present? &&
-           agenda.present? &&
-           team.present?
+    @errors.length == 0
   end
 end

@@ -29,6 +29,6 @@ class AssignInviteService < BaseService
     @errors = []
     @errors.push('user is not exists') unless user.present?
     @errors.push('team is not exists') unless team.present?
-    user.present? && team.present?
+    @errors.length == 0
   end
 end
