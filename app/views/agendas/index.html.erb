@@ -12,7 +12,10 @@
   <tbody>
     <% @agendas.includes(:articles).each do |agenda| %>
       <table>
-        <tr>Agenda title:<%= agenda.title %></tr>
+        <tr>
+          Agenda title:<%= agenda.title %>
+          <%= link_to 'Delete Agenda', agenda_path, method: :delete %>
+        </tr>
         <br />
         <% agenda.articles.each do |article| %>
           <li>Article title:<%= article.title %></li>

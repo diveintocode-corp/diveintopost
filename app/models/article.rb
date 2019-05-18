@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
-  validates :title, presence: true, length: { minimum: 1, maximum: 100 }
-  validates :content, presence: true, length: { minimum: 1, maximum: 1000 }
+  validates :title, text: true
+  validates :content, text: true
   belongs_to :user
   belongs_to :team
   belongs_to :agenda

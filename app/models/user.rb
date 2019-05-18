@@ -9,21 +9,53 @@ class User < ApplicationRecord
   has_many :agendas, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :email, email: true
+
   belongs_to :keep_team, optional: true, class_name: 'Team', foreign_key: :keep_team_id
 
   mount_uploader :icon, ImageUploader
 
-  def self.find_or_create_by_email(email)
-    user = find_or_initialize_by(email: email)
-    if user.new_record?
-      user.password = generate_password
-      user.save!
-      AssignMailer.assign_mail(user.email, user.password).deliver
+  class << self
+    def current_user=(user)
+      Thread.current[:current_user] = user
     end
-    user
+
+    def current_user
+      Thread.current[:current_user]
+    end
+
+    def find_or_create_by_email(email)
+      user = find_or_initialize_by(email: email)
+      if user.new_record?
+        user.password = generate_password
+        user.save!
+        AssignMailer.assign_mail(user.email, user.password).deliver
+      end
+      user
+    end
+
+    def generate_password
+      SecureRandom.hex(10)
+    end
   end
 
-  def self.generate_password
-    SecureRandom.hex(10)
+  def change_keep_team(current_team)
+    self.keep_team_id = current_team.id
+    self.save!
+  end
+
+  def keep_team
+    unCheckedAssign = Assign.find_by(
+      user_id: self.id,
+      team_id: self.keep_team_id
+    )
+    if unCheckedAssign.nil?
+      assigned_team = self.teams.first
+      return Team.first if assigned_team.nil?
+      self.change_keep_team(assigned_team)
+      return assigned_team
+    else
+      return unCheckedAssign.team
+    end
   end
 end

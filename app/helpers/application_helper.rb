@@ -23,4 +23,8 @@ module ApplicationHelper
       article_path(article)
     end
   end
+
+  def isEmail(value)
+    return value =~ Devise.email_regexp
+  end
 end

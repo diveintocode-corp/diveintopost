@@ -8,20 +8,20 @@ class TeamsController < ApplicationController
 
   def show
     @working_team = @team
-    change_keep_team(current_user, @team)
+    current_user.change_keep_team(@team)
   end
 
   def new
     @team = Team.new
   end
 
-  def edit; end
+  def edit
+    redirect_to :back, notice: 'リーダー以外はチーム情報を編集出来ません。' if current_user != @team.owner
+  end
 
   def create
     @team = Team.new(team_params)
-    @team.owner = current_user
     if @team.save
-      @team.invite_member(@team.owner)
       redirect_to @team, notice: 'チーム作成に成功しました！'
     else
       flash.now[:error] = '保存に失敗しました、、'
@@ -43,8 +43,15 @@ class TeamsController < ApplicationController
     redirect_to teams_url, notice: 'チーム削除に成功しました！'
   end
 
+  def transfer_owner
+    repository = TeamTransferService.new(params)
+    redirect_to repository.team, notice: repository.transfer ?
+      'チームリーダーを変更しました！' :
+      'チームリーダーを変更することができませんでした'
+  end
+
   def dashboard
-    @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
+    @team = current_user.keep_team
   end
 
   private
@@ -54,6 +61,22 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
+    params.fetch(:team, {}).permit(
+      :name,
+      :icon,
+      :icon_cache,
+      :keep_team_id,
+      :team_id
+    ).merge(
+      owner_id: current_user.id
+    )
+  end
+
+  def assign_params
+    params[:email]
+  end
+
+  def email_reliable?(address)
+    address.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
   end
 end
