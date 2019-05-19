@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include TeamHelper
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -41,7 +42,9 @@ class User < ApplicationRecord
     )
     if unCheckedAssign.nil?
       assigned_team = self.teams.first
-      return Team.first if assigned_team.nil?
+      if assigned_team.nil?
+        return Team.first
+      end
       self.change_keep_team(assigned_team)
       return assigned_team
     else

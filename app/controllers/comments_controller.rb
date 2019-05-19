@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment %i[edit update destroy]
+  before_action :set_comment, only: %i[edit update destroy]
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
@@ -15,7 +15,11 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    redirect_to article_path(@comment.article) if @comment.update(comment_params)
+    if @comment.update(comment_params)
+      redirect_to article_path(@comment.article)
+    else
+      redirect_to edit_comment_path(@comment), notice: @comment.errors.full_messages.first
+    end
   end
 
   def destroy

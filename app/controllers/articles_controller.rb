@@ -24,12 +24,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = agenda.articles.build(article_params)
-    article.team_id = agenda.team_id
+    article = @agenda.articles.build(article_params)
+    article.team_id = @agenda.team_id
     if article.save
       redirect_to article_url(article), notice: '記事作成に成功しました！'
     else
-      render :new, notice: article.errors.full_messages.first
+      redirect_to new_agenda_article_path(@agenda), notice: article.errors.full_messages.first
     end
   end
 
