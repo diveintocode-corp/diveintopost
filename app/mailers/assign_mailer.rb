@@ -6,4 +6,10 @@ class AssignMailer < ApplicationMailer
     @password = password
     mail to: @email, subject: '登録完了'
   end
+
+  def update_mail(email, name)
+    @email = email
+    @name = name
+    mail to: @email, subject: 'オーナー権限付与'
+  end
 end

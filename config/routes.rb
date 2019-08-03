@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   resource :user
-  
+
   resources :teams do
-    resources :assigns, only: %w(create destroy)
+    resources :assigns, only: %w(create destroy update)
     resources :agendas, shallow: true do
       resources :articles do
         resources :comments

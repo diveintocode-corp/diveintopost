@@ -45,9 +45,13 @@
                       <td><%= assign.user.email %></td>
                       <% if current_user == @team.owner %>
                         <td><%= link_to '削除', team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger' %></td>
-                      <% end %>
-                      <% if current_user.id == assign.user_id && current_user != @team.owner%>
+                      <% elsif current_user.id == assign.user_id && current_user != @team.owner%>
                         <td><%= link_to '削除', team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+                      <% end %>
+                      <% if current_user == @team.owner %>
+                        <% unless assign.user_id == @team.owner.id %>
+                          <td><%= link_to '権限移動', team_assign_path(@team, assign), method: :put, class: 'btn btn-sm btn-warning' %></td>
+                        <% end %>
                       <% end %>
                     </tr>
                   <% end %>
