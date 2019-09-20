@@ -31,7 +31,12 @@ class TeamsController < ApplicationController
   end
 
   def update
-    if @team.update(team_params)
+    if params[:owner_id]
+      @team.update(owner_id: params[:owner_id])
+      user = User.find(@team.owner_id)
+      NotifyNewLeaderMailer.notify_new_leader_mail(user, @team).deliver
+      redirect_to @team, notice: 'リーダーの変更に成功しました！'
+    elsif @team.update(team_params)
       redirect_to @team, notice: 'チーム更新に成功しました！'
     else
       flash.now[:error] = '保存に失敗しました、、'

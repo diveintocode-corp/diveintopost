@@ -16,6 +16,8 @@ Rails.application.routes.draw do
         resources :comments
       end
     end
+
+    
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
