@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+  protect_from_forgery
   before_action :init_team, if: :user_signed_in?
   before_action :set_working_team, if: :user_signed_in?
 
