@@ -1,7 +1,6 @@
 {
 	"editor.detectIndentation": false,
 	"editor.tabSize": 2,
-	"editor.insertSpaces": false,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"editor.useTabStops": false
 }

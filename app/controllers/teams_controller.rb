@@ -43,6 +43,7 @@ class TeamsController < ApplicationController
     @team = Team.friendly.find(params[:id])
     assign = Assign.find(params[:format])
     @team.update(owner_id: assign.user_id)
+    TeamMailer.transfer_mail(assign.user.email, @team.name).deliver
     redirect_to @team, notice: 'リーダーを変更しました！'
   end
 
