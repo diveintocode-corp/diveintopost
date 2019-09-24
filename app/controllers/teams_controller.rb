@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-  # before_action :authorize_team, only: %i[edit update]
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -38,6 +37,13 @@ class TeamsController < ApplicationController
       flash.now[:error] = '保存に失敗しました、、'
       render :edit
     end
+  end
+
+  def transfer
+    @team = Team.friendly.find(params[:id])
+    assign = Assign.find(params[:format])
+    @team.update(owner_id: assign.user_id)
+    redirect_to @team, notice: 'リーダーを変更しました！'
   end
 
   def destroy
