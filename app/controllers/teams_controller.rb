@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  # before_action :authorize_team, only: %i[edit update]
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
 
@@ -51,9 +52,14 @@ class TeamsController < ApplicationController
 
   def set_team
     @team = Team.friendly.find(params[:id])
+    authorize @team
   end
 
   def team_params
     params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
   end
+
+  # def authorize_team
+  #   authorize @team
+  # end
 end
