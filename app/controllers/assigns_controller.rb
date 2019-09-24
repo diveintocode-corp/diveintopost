@@ -1,6 +1,7 @@
 class AssignsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_assign, only: %i[destroy]
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def create
     team = Team.friendly.find(params[:team_id])
@@ -48,8 +49,13 @@ class AssignsController < ApplicationController
     change_keep_team(assigned_user, another_team) if assigned_user.keep_team_id == assign.team_id
   end
 
-	def authorize_assign
-		@assign = Assign.find(params[:id])
+  def authorize_assign
+    @assign = Assign.find(params[:id])
     authorize @assign
+  end
+
+  def user_not_authorized
+    flash[:alert] = '権限がありません。'
+    redirect_to(request.referrer || root_path)
   end
 end

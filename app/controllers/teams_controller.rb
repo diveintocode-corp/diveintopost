@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
   # before_action :authorize_team, only: %i[edit update]
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index
     @teams = Team.all
@@ -59,7 +60,8 @@ class TeamsController < ApplicationController
     params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
   end
 
-  # def authorize_team
-  #   authorize @team
-  # end
+  def user_not_authorized
+    flash[:alert] = '権限がありません。'
+    redirect_to(request.referrer || root_path)
+  end
 end
