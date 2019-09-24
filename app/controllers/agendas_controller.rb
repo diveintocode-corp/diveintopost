@@ -1,5 +1,5 @@
 class AgendasController < ApplicationController
-  # before_action :set_agenda, only: %i[show edit update destroy]
+  before_action :set_agenda, only: %i[destroy]
 
   def index
     @agendas = Agenda.all
@@ -19,6 +19,19 @@ class AgendasController < ApplicationController
     else
       render :new
     end
+
+    def destroy
+      if @agenda.destroy
+        @agenda.team.members.each do |member|
+          # binding.pry
+          NotifyAgendaChangeMailer.notify_agenda_change_mail(member,@agenda).deliver
+        end 
+        redirect_to dashboard_url, notice: 'アジェンダを削除しました！'
+      else
+        redirect_to dashboard_url, notice: 'アジェンダを削除できませんでした！'
+      end
+    end
+  
   end
 
   private
