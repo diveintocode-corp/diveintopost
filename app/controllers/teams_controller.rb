@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @working_team = @team
     change_keep_team(current_user, @team)
   end
@@ -15,7 +16,11 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  def edit; end
+  def edit
+    unless @team.owner.id == current_user.id
+      redirect_to @team, notice: 'チーム編集の権限がありません'
+    end
+  end
 
   def create
     @team = Team.new(team_params)
@@ -39,8 +44,12 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @team.destroy
-    redirect_to teams_url, notice: 'チーム削除に成功しました！'
+    if @team.owner.id == current_user.id
+      @team.destroy
+      redirect_to teams_url, notice: 'チーム削除に成功しました！'
+    else
+      flash.now[:error] = '削除できません'
+    end
   end
 
   def dashboard
