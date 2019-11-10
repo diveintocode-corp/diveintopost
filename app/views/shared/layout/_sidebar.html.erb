@@ -30,6 +30,12 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <% @working_team.agendas.each do |agenda| %>
           <li class="nav-item has-treeview menu-open">
+                        <span href="#" class="nav-link">
+              <i class="fa fa-circle-o nav-icon"></i>
+                <%= agenda.title %>
+                <%= link_to "削除" , agenda_path(agenda), method: :delete, class: "btn-sm btn-default"%>
+              <i class="right fa fa-angle-left"></i>
+            </span>
             <a href="#" class="nav-link">
               <i class="fa fa-circle-o nav-icon"></i>
               <p>

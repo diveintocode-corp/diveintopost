@@ -17,6 +17,7 @@
         <% agenda.articles.each do |article| %>
           <li>Article title:<%= article.title %></li>
         <% end %>
+        <%= link_to "agendaを削除する", agenda_path(agenda.id), method: :delete %>
       </table>
     <% end %>
   </tbody>
