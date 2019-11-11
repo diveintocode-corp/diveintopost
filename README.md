@@ -57,3 +57,65 @@ git remote addなどで、originという文字列と、URLを紐づける
 大元のissueを見ながら自分のローカルで機能開発を進め、自分のGitHubにPullRequestを提出する
 （この案件は、developブランチとfeatureブランチのみで行う形で、masterブランチはなくても構わない）
 ```
+
+# README
+
+This theme is an application to improve Slack dependency of document sharing.
+(An in-house tool developed to facilitate internal information sharing)
+　
+This time, the integration test (Feature Spec) is not implemented.
+
+The reason is that because this application is a small and in-house tool, we do not need to take many man-hours to automate behavior confirmation.
+　
+However, logic tests (Model Spec) such as user invitation are implemented.
+
+## Version
+* Ruby 2.5.1
+* Ruby on Rails 5.2.0
+* psql (PostgreSQL) 9.6.3
+
+## Preparation
+
+```
+$ git clone git@github.com:DiveintoCode-corp/diveintopost.git
+$ cd diveintopost
+$ yarn install # If yarn has not been installed yet.
+$ bundle install --path vendor/bundle
+$ rails db:create db:migrate
+$ rails db:seed_fu
+```
+
+## Application execution
+
+```
+$ rails s
+
+※ Open another terminal window
+$ bin/webpack-dev-server
+```
+
+## Development flow
+
+```
+$ git checkout develop
+$ git push origin feature/issues-issue number
+
+Implementation of development
+
+After development is complete
+$ git push origin feature/issues-issue number
+
+Create Pull Request on GitHub
+Merge after repeated review and correction
+
+When a new issue is allocated, do git checkout develop and create a new feature branch
+```
+
+## If you use your own repository
+
+```
+Create an empty repository in your GitHub account and push a cloned application (folk is acceptable too)
+Use "git remote add" to link "origin" to your own GitHub URL
+While looking at the original issue, proceed with local feature development and submit a PullRequest to your GitHub
+(This project is done only with the develop and feature branches. There is no need for the master branch.)
+```
