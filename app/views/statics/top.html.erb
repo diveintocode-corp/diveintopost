@@ -1,12 +1,12 @@
 <h1>DIVE INTO POST</h1>
 
-<P>このアプリケーションは、チームごと、議題ごとに別れて<br>
-特定のイシュー（議題）をメンバーで見やすく共有するためのアプリケーションです</P>
+<P><%= I18n.t('views.top.line1') %><br>
+<%= I18n.t('views.top.line2') %></P>
 
-<P>slackなどで情報を共有してしまうと、ややもすると重要な情報が流れて拾えなくなるという<br>
-事態が起こってしまうので、それを回避するための社内用アプリケーションです</P>
+<P><%= I18n.t('views.top.line3') %><br>
+<%= I18n.t('views.top.line4') %></P>
 
 <%= image_tag 'DIVEINTOCODE.png' %>
 
 <br>
-<p><%= link_to 'チームを作る', new_team_path %></p>
+<p><%= link_to I18n.t('views.messages.team_build2'), new_team_path %></p>

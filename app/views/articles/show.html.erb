@@ -9,8 +9,8 @@
         </h3>
         <%= @article.user.email %>
         <%= l(@article.created_at, format: :long) %>
-        <%= link_to '編集', edit_article_path(@article) %>
-        <%= link_to '削除', article_path(@article), method: :delete %>
+        <%= link_to I18n.t('views.button.edit'), edit_article_path(@article) %>
+        <%= link_to I18n.t('views.button.delete'), article_path(@article), method: :delete %>
       </div>
       <!-- /.card-header -->
       <div class="card-body">
@@ -18,13 +18,13 @@
         <%= image_tag @article.image_url if @article.image_url %>
       </div>
 
-      <p>コメント一覧</p>
+      <p><%= I18n.t('views.messages.comment_list') %></p>
       <div id="comments_area" class="comments_area_form">
         <!-- 投稿されたコメント一覧をarticleの詳細ページに表示するためのrender -->
         <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
       </div>
 
-      <p>コメント投稿</p>
+      <p><%= I18n.t('views.messages.post_comment') %></p>
       <!-- コメント入力欄をarticleの詳細ページに表示するためのrender -->
       <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
 

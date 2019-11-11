@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, placeholder: 'チーム名を入力してください', class: 'form-control' %>
+    <%= form.text_field :name, placeholder: I18n.t('views.messages.input_team_name'), class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -27,6 +27,6 @@
 
   <div class="form-group">
     <%= form.hidden_field :owner_id, value: current_user.id %>
-    <%= form.submit '作成', class: 'btn btn-primary' %>
+    <%= form.submit I18n.t('views.button.create'), class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       if @comment.save!
         format.js { render :index }
       else
-        format.html { redirect_to article_path(@article), notice: '投稿できませんでした...' }
+        format.html { redirect_to article_path(@article), notice: I18n.t('views.messages.failed_to_post') }
       end
     end
   end

@@ -4,7 +4,7 @@
   <div class="col-md-8">
     <div class="card">
       <div class="card-title p-1">
-        最近投稿された記事
+        <%= I18n.t('views.messages.recent_posts') %>
       </div>
       <div class="card-body p-0">
         <table class="table">
@@ -14,12 +14,12 @@
                 <td><%= image_tag default_img(nil), size: '40x40' %></td>
                 <td>
                   <%= link_to article_path(article) do %>
-                    <span><%= article.team.name %>チーム　</span>
+                    <span><%= article.team.name %><%= I18n.t('views.common.team') %></span>
                     <span class="badge bg-primary"><%= article.agenda.title %></span>
                     <%= article.title %>
                   <% end %>
                   <br>
-                  <%= l(article.created_at, format: :long) %>に投稿
+                  <%= l(article.created_at, format: :long) %><%= I18n.t('views.messages.posted_at') %>
                 </td>
               </tr>
             <% end %>
@@ -35,7 +35,7 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-title p-1">
-        <%= @team.name %>チームのメンバー一覧
+        <%= @team.name %><%= I18n.t('views.messages.team_members') %>
       </div>
       <div class="card-body p-0">
         <table class="table">

@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     article.user = current_user
     article.team_id = agenda.team_id
     if article.save
-      redirect_to article_url(article), notice: '記事作成に成功しました！'
+      redirect_to article_url(article), notice: I18n.t('views.messages.create_article')
     else
       render :new
     end
@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: '記事更新に成功しました！'
+      redirect_to @article, notice: I18n.t('views.messages.update_article')
     else
       render :edit
     end

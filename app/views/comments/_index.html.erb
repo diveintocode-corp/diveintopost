@@ -4,15 +4,15 @@
       <li>
         <p><%= comment.content %></p>
         <% if comment.user.try(:email) %>
-          投稿者：<%= comment.user.email %><br>
+          <%= I18n.t('views.messages.author') %>：<%= comment.user.email %><br>
         <% else %>
           Not User Data<br>
         <% end %>
 
         <% if comment.user == current_user || current_user.id == comment.article.team.owner_id %>
           <p>
-            <%= link_to 'コメントを削除する', comment_path(comment), method: :delete, remote: true %>
-            / <%= link_to 'コメントを編集する', edit_comment_path(comment) %>
+            <%= link_to I18n.t('views.messages.delete_comment'), comment_path(comment), method: :delete, remote: true %>
+            / <%= link_to I18n.t('views.messages.edit_comment'), edit_comment_path(comment) %>
           </p>
         <% end %>
       </li>
