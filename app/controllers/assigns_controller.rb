@@ -6,9 +6,9 @@ class AssignsController < ApplicationController
     user = email_reliable?(assign_params) ? User.find_or_create_by_email(assign_params) : nil
     if user
       team.invite_member(user)
-      redirect_to team_url(team), notice: 'アサインしました！'
+      redirect_to team_url(team), notice: I18n.t('views.messages.assigned')
     else
-      redirect_to team_url(team), notice: 'アサインに失敗しました！'
+      redirect_to team_url(team), notice: I18n.t('views.messages.failed_to_assign')
     end
   end
 
@@ -27,16 +27,16 @@ class AssignsController < ApplicationController
 
   def assign_destroy(assign, assigned_user)
     if assigned_user == assign.team.owner
-      'リーダーは削除できません。'
+      I18n.t('views.messages.cannot_delete_the_leader')
     elsif Assign.where(user_id: assigned_user.id).count == 1
-      'このユーザーはこのチームにしか所属していないため、削除できません。'
+      I18n.t('views.messages.cannot_delete_only_a_member')
     elsif assign.destroy
       set_next_team(assign, assigned_user)
-      'メンバーを削除しました。'
+      I18n.t('views.messages.delete_member')
     else
-      'なんらかの原因で、削除できませんでした。'
-    end    
-  end  
+      I18n.t('views.messages.cannot_delete_member_4_some_reason')
+    end
+  end
   
   def email_reliable?(address)
     address.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)

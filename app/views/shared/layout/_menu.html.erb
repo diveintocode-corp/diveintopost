@@ -3,10 +3,10 @@
   <div class="p-3">
     <% if user_signed_in? %>
       <h5>Menu</h5>
-      <p><%= link_to 'マイページ', user_path %></p>
-      <p><%= link_to 'チーム作成', new_team_path %></p>
+      <p><%= link_to I18n.t('views.messages.my_page'), user_path %></p>
+      <p><%= link_to I18n.t('views.messages.team_build'), new_team_path %></p>
 
-      <h5>チーム選択</h5>
+      <h5><%= I18n.t('views.messages.select_team') %></h5>
       <% (current_user.teams.blank? ? Team.where(id: 1) : current_user.teams).each do |team| %>
         <%= link_to team_path(team) do %>
           <p>
