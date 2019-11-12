@@ -1,5 +1,5 @@
 ---
-en-US:
+en:
   activerecord:
     errors:
       messages:
@@ -226,7 +226,7 @@ en-US:
       cannot_delete_member_4_some_reason: 'The file could not be deleted for some reason.'
       failed_to_post: 'Failed to post ...'
       create_team: 'Successfully created a team!'
-      failed_to_create_team: 'Failed to save...'
+      failed_to_save_team: 'Failed to save...'
       update_team: 'Successfully updated the team!'
       delete_team: 'The team has been deleted'
       update_profile: 'Successfully update your profile!'
