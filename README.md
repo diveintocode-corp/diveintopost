@@ -88,6 +88,7 @@ $ rails db:seed_fu
 
 ## Change the language
 https://github.com/DiveintoCode-corp/diveintopost/blob/b958867948e7ab86c10a303b1f07d6478e87ef3a/config/application.rb#L25
+
 ex.
 Japanese ver.
 ```
