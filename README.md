@@ -16,8 +16,10 @@
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
-$ yarn install # まだ環境にyarnが入っていなかったら
 $ bundle install --path vendor/bundle
+$ yarn install # まだ環境にyarnが入っていなかったら
+$ yarn add @fortawesome/fontawesome-free
+$ yarn add @fortawesome/free-solid-svg-icons
 $ rails db:create db:migrate
 $ rails db:seed_fu
 ```
@@ -80,8 +82,10 @@ However, logic tests (Model Spec) such as user invitation are implemented.
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
-$ yarn install # If yarn has not been installed yet.
 $ bundle install --path vendor/bundle
+$ yarn install # If yarn has not been installed yet.
+$ yarn add @fortawesome/fontawesome-free
+$ yarn add @fortawesome/free-solid-svg-icons
 $ rails db:create db:migrate
 $ rails db:seed_fu
 ```
