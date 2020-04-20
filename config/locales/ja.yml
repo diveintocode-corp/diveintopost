@@ -218,6 +218,7 @@ ja:
       failed_to_post: '投稿できませんでした...'
       create_team: 'チーム作成に成功しました！'
       failed_to_save_team: '保存に失敗しました、、'
+      cannot_edit_team_no_permission: 'チーム編集の権限がありません'
       update_team: 'チーム更新に成功しました！'
       delete_team: 'チーム削除に成功しました！'
       update_profile: 'プロフィールを編集しました！'
