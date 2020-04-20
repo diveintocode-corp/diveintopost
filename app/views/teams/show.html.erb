@@ -10,7 +10,9 @@
               <%= image_tag default_img(@team.icon_url), class: 'img' %><br>
               <%= @team.name %>
             </div>
+            <% if @is_owner %>
             <%= link_to I18n.t('views.messages.edit_team'), edit_team_path(@team), class: 'btn btn-success btn-block mt-3' %>
+            <% end %>
           </div>
 
           <div class="col-md-8">
