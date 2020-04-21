@@ -9,13 +9,18 @@ class TeamsController < ApplicationController
   def show
     @working_team = @team
     change_keep_team(current_user, @team)
+    @is_owner = is_owner?
   end
 
   def new
     @team = Team.new
   end
 
-  def edit; end
+  def edit
+    unless is_owner?
+      redirect_to @team, notice: I18n.t('views.messages.cannot_edit_team_no_permission')
+    end
+  end
 
   def create
     @team = Team.new(team_params)
@@ -56,4 +61,5 @@ class TeamsController < ApplicationController
   def team_params
     params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
   end
+
 end
