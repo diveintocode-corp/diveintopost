@@ -224,6 +224,7 @@ ja:
       delete_team: 'チーム削除に成功しました！'
       update_profile: 'プロフィールを編集しました！'
       complete_registration: '登録完了'
+      complete_owner_assign: 'オーナーにアサインされました!'
       edit_article: '記事を編集する'
       input_title: '記事タイトルを入力してください'
       input_content: '内容を入力してください'
