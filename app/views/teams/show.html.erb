@@ -47,6 +47,16 @@
                       <td><%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger' %></td>
                       <% else %> <td></td>
                       <% end %>
+                      <td>
+                        <% if @is_owner && assign.user_id != current_user.id %>
+                        <%= form_with(model: @team, url: owner_team_path(@team) ,local: true) do |form| %>
+                        <div class="form-group">
+                        <%= form.hidden_field :owner_id, value: assign.user_id %>
+                        <%= form.submit I18n.t('views.button.owner'), class: 'btn btn-primary' %>
+                        </div>
+                        <% end %>
+                        <% end %>
+                      </td>
                     </tr>
                   <% end %>
                 </tbody>
