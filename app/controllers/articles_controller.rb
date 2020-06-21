@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :not_authorized, only: %i[edit update destroy]
 
   def index
     @agendas = Agenda.all
@@ -57,5 +58,11 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.fetch(:article, {}).permit %i[title content image image_cache]
+  end
+
+  def not_authorized
+    if current_user.id != @article.user_id || current_user.id != @article.team.owner_id
+      redirect_to article_path(@article.id)
+    end
   end
 end

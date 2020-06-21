@@ -9,8 +9,10 @@
         </h3>
         <%= @article.user.email %>
         <%= l(@article.created_at, format: :long) %>
-        <%= link_to I18n.t('views.button.edit'), edit_article_path(@article) %>
-        <%= link_to I18n.t('views.button.delete'), article_path(@article), method: :delete %>
+        <% if current_user.id == @article.user_id || current_user.id == @article.team.owner_id %>
+          <%= link_to I18n.t('views.button.edit'), edit_article_path(@article) %>
+          <%= link_to I18n.t('views.button.delete'), article_path(@article), method: :delete %>
+        <% end %>
       </div>
       <!-- /.card-header -->
       <div class="card-body">
