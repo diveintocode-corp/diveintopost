@@ -40,7 +40,7 @@ Style/Lambda:
 Layout/DotPosition:
   Enabled: false
 
-Layout/LineLength:
+Metrics/LineLength:
   Enabled: false
 
 Metrics/BlockLength:
