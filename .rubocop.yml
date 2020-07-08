@@ -19,9 +19,6 @@ Layout/EmptyLinesAroundClassBody:
 Layout/ExtraSpacing:
   Enabled: false
 
-Layout/FirstHashElementIndentation:
-  Enabled: false
-
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
 
@@ -85,9 +82,6 @@ Style/RedundantSelf:
 Style/RedundantReturn:
   Enabled: false
 
-Layout/TrailingEmptyLines:
-  Enabled: false
-
 Style/NumericPredicate:
   Enabled: false
 
@@ -107,9 +101,6 @@ Lint/UselessAccessModifier:
   Enabled: true
 
 Lint/AssignmentInCondition:
-  Enabled: true
-
-Naming/MethodParameterName:
   Enabled: true
 
 Layout/DefEndAlignment:
