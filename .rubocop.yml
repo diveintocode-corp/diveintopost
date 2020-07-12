@@ -9,9 +9,16 @@ AllCops:
     - Gemfile
     - features/**/*
     - spec/**/*
+    - node_modules/**/*
 
 Style/StringLiterals:
   Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+  
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
 
 Layout/EmptyLinesAroundClassBody:
   Enabled: false
@@ -20,6 +27,9 @@ Layout/ExtraSpacing:
   Enabled: false
 
 Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Layout/LineLength:
   Enabled: false
 
 Style/FormatString:
@@ -38,9 +48,6 @@ Style/Lambda:
   Enabled: false
 
 Layout/DotPosition:
-  Enabled: false
-
-Metrics/LineLength:
   Enabled: false
 
 Metrics/BlockLength:
@@ -115,7 +122,55 @@ Style/MultilineTernaryOperator:
 Style/GuardClause:
   Enabled: true
 
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+  
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
 Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Lint/Void:
   Enabled: true
 
 Style/IdenticalConditionalBranches:
@@ -125,9 +180,6 @@ Style/CommentedKeyword:
   Enabled: true
 
 Naming/HeredocDelimiterNaming:
-  Enabled: true
-
-Lint/Void:
   Enabled: true
 
 Layout/EmptyLineAfterGuardClause:
