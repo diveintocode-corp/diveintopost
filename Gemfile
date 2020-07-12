@@ -43,6 +43,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-checkstyle_formatter'
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
