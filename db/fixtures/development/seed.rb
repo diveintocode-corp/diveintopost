@@ -35,14 +35,14 @@ Assign.seed(
 
 Agenda.seed(
   :id,
-  { id: 1, user_id: 1, team_id: 1, title: Faker::Cat.name, description: Faker::Cat.registry },
-  { id: 2, user_id: 3, team_id: 1, title: Faker::Cat.name, description: Faker::Cat.registry },
-  { id: 3, user_id: 1, team_id: 1, title: Faker::Cat.name, description: Faker::Cat.registry },
-  { id: 4, user_id: 2, team_id: 2, title: Faker::Cat.name, description: Faker::Cat.registry },
-  { id: 5, user_id: 7, team_id: 2, title: Faker::Cat.name, description: Faker::Cat.registry },
-  { id: 6, user_id: 8, team_id: 2, title: Faker::Cat.name, description: Faker::Cat.registry },
-  { id: 7, user_id: 10, team_id: 3, title: Faker::Cat.name, description: Faker::Cat.registry },
-  id: 8, user_id: 2, team_id: 3, title: Faker::Cat.name, description: Faker::Cat.registry
+  { id: 1, user_id: 1, team_id: 1, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  { id: 2, user_id: 3, team_id: 1, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  { id: 3, user_id: 1, team_id: 1, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  { id: 4, user_id: 2, team_id: 2, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  { id: 5, user_id: 7, team_id: 2, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  { id: 6, user_id: 8, team_id: 2, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  { id: 7, user_id: 10, team_id: 3, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry },
+  id: 8, user_id: 2, team_id: 3, title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.registry
 )
 
 Article.seed(
