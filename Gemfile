@@ -66,11 +66,10 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'rails-controller-testing'
   gem 'rspec-parameterized'
   gem 'rspec-retry'
-  gem 'selenium-webdriver'
   gem 'timecop'
 end
 
