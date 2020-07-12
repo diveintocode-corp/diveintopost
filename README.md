@@ -18,8 +18,6 @@ $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
 $ bundle install --path vendor/bundle
 $ yarn install # まだ環境にyarnが入っていなかったら
-$ yarn add @fortawesome/fontawesome-free
-$ yarn add @fortawesome/free-solid-svg-icons
 $ rails db:create db:migrate
 $ rails db:seed_fu
 ```

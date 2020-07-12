@@ -2,8 +2,8 @@
   "name": "keijiban",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@rails/webpacker": "3.5",
     "admin-lte": "^3.0.0-alpha.2",
     "bootstrap": "^4.1.3",
