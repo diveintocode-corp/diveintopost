@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.6'
 
 # Core
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -42,7 +42,9 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'rubocop'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
+  gem 'rubocop-checkstyle_formatter'
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -64,11 +66,10 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'rails-controller-testing'
   gem 'rspec-parameterized'
   gem 'rspec-retry'
-  gem 'selenium-webdriver'
   gem 'timecop'
 end
 

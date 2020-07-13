@@ -1,23 +1,213 @@
 AllCops:
   Exclude:
+    - bin/*
     - db/schema.rb
     - db/migrate/*
-    - bin/**/*
     - vendor/**/*
     - config/**/*
-    - lib/**/*
-    - node_modules/**/*
-    - Rakefile
-    # デフォルトのRspec修正がきついので一旦除外
+    - lib/tasks/*
+    - Gemfile
+    - features/**/*
     - spec/**/*
-  TargetRubyVersion: 2.5
-Rails:
+    - node_modules/**/*
+
+Style/StringLiterals:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
-Style/AsciiComments:
+  
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Layout/EmptyLinesAroundClassBody:
   Enabled: false
-Style/Documentation:
+
+Layout/ExtraSpacing:
   Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/AndOr:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  Enabled: false
+
+Style/TernaryParentheses:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Layout/DotPosition:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-inherit_from: .rubocop_training.yml
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: true
+
+Lint/UselessAccessModifier:
+  Enabled: true
+
+Lint/AssignmentInCondition:
+  Enabled: true
+
+Layout/DefEndAlignment:
+  Enabled: true
+
+Bundler/DuplicatedGem:
+  Enabled: true
+
+Style/MultilineTernaryOperator:
+  Enabled: true
+
+Style/GuardClause:
+  Enabled: true
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+  
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Lint/Void:
+  Enabled: true
+
+Style/IdenticalConditionalBranches:
+  Enabled: true
+
+Style/CommentedKeyword:
+  Enabled: true
+
+Naming/HeredocDelimiterNaming:
+  Enabled: true
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Style/SymbolArray:
+  Enabled: true
+
+Style/MultilineIfThen:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Layout/SpaceBeforeComma:
+  Enabled: true
