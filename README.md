@@ -7,7 +7,7 @@
 ただしUser招待などのロジックテスト（Model Spec）は実装している。
 
 ## バージョン
-* Ruby 2.6.6
+* Ruby 2.6.5
 * Ruby on Rails 5.2.4.3
 * psql (PostgreSQL) 12.3
 
@@ -71,7 +71,7 @@ The reason is that because this application is a small and in-house tool, we do 
 However, logic tests (Model Spec) such as user invitation are implemented.
 
 ## Version
-* Ruby 2.6.6
+* Ruby 2.6.5
 * Ruby on Rails 5.2.4.3
 * psql (PostgreSQL) 12.3
 
