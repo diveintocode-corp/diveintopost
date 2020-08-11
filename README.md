@@ -22,6 +22,34 @@ $ rails db:create db:migrate
 $ rails db:seed_fu
 ```
 
+### Windowsユーザ向け
+Vagrantを通してUbuntu上にyarnをインストールするときは、事前に次の対応が必要です。
+
+### 1. Windowsローカルセキュリティポリシーで、シンボリック作成権限を一般ユーザーにも許可する
+```
+1. Window + r で　「secpol.msc」を入力し、ローカルセキュリティポリシーを呼び出す
+2. ローカルポリシー >> ユーザー権限割当 >> シンボリックリンクの作成、とクリックし、`Users` を追加する
+```
+作成権限を与えていないと yarnによるWebpacker 登録時に以下のようなエラーが発生します。
+```
+error An unexpected error occurred: "EPROTO: protocol error, symlink '../../../../js-yaml/bin/js-yaml.js' -> 
+```
+
+### 2. Ubuntuにyarnを登録するため、npmを利用する
+npmを利用することで、yarn install を可能にします。
+
+```
+# npm インストール
+$ sudo apt install npm -y # yarn インストール
+$ sudo npm install -g yarn
+
+# yarnのバージョン確認でエラーが出る場合nodejsをアップデートする
+$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+sudo apt install -y nodejs
+
+$ yarn -v
+```
+
 ## アプリケーション実行
 
 ```
