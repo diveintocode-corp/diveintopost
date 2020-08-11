@@ -220,6 +220,7 @@ en:
       update_article: 'Successfully updated the article!'
       assigned: 'Assigned!'
       failed_to_assign: 'Assignment failed'
+      email_already_exist: 'Email already exist'
       cannot_delete_the_leader: 'The leader cannot be deleted'
       cannot_delete_only_a_member: 'This user is only a member of this team and cannot be deleted'
       delete_member: 'The member has been deleted'
