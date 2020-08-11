@@ -28,11 +28,11 @@ Vagrantを通してUbuntu上にyarnをインストールするときは、事前
 ### 1. Windowsローカルセキュリティポリシーで、シンボリック作成権限を一般ユーザーにも許可する
 ```
 1. Window + r で　「secpol.msc」を入力し、ローカルセキュリティポリシーを呼び出す
-2. ローカルポリシー >> ユーザー権限割当 >> シンボリックリンクの作成、とクリックし、`Users` を追加する
+2. ローカルポリシー >> ユーザー権限割当 >> シンボリックリンクの作成、とクリックし、Usersを追加する
 ```
 作成権限を与えていないと yarnによるWebpacker 登録時に以下のようなエラーが発生します。
 ```
-error An unexpected error occurred: "EPROTO: protocol error, symlink '../../../../js-yaml/bin/js-yaml.js' -> 
+error An unexpected error occurred: "EPROTO: protocol error, symlink '../../../../js-yaml/bin/js-yaml.js' ->
 ```
 
 ### 2. Ubuntuにyarnを登録するため、npmを利用する
