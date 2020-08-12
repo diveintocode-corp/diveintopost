@@ -210,6 +210,8 @@ ja:
       update_article: '記事更新に成功しました！'
       assigned: 'アサインしました！'
       failed_to_assign: 'アサインに失敗しました！'
+      email_already_exists: 'すでに同じメールアドレスが登録されています!'
+      does_not_exist_email: 'メールアドレスが存在しません。アカウントを作成してください。'
       cannot_delete_the_leader: 'リーダーは削除できません。'
       cannot_delete_only_a_member: 'このユーザーはこのチームにしか所属していないため、削除できません。'
       delete_member: 'メンバーを削除しました。'
