@@ -255,7 +255,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redcarpet (2.3.0)
+    redcarpet (3.5.1)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -417,7 +417,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.0)
   rails-controller-testing
-  redcarpet (~> 2.3.0)
+  redcarpet (~> 3.5.1)
   rspec-parameterized
   rspec-rails
   rspec-retry
