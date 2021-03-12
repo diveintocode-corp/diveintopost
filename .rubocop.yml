@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - bin/*
     - db/schema.rb
+    - db/seeds.rb
     - db/migrate/*
     - vendor/**/*
     - config/**/*
