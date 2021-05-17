@@ -8,7 +8,7 @@
 
 ## バージョン
 * Ruby 2.6.5
-* Ruby on Rails 5.2.4.3
+* Ruby on Rails 5.2.5
 * psql (PostgreSQL) 12.3
 
 ## 準備
