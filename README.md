@@ -62,6 +62,16 @@ $ rails s
 $ bin/webpack-dev-server
 ```
 
+＊以下のエラーが発生した場合、上記のコマンドを一度停止させ、再度実行し直すことでエラーが解消されます。
+```
+Webpacker::Manifest::MissingEntryError - Webpacker can't find application.css in /Users/kei/programing/ruby/webass/diveintopost/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+```
+
 ## 開発フロー
 
 ```
@@ -140,6 +150,16 @@ $ rails s
 
 ※ Open another terminal window
 $ bin/webpack-dev-server
+```
+
+＊If the following error occurs, stop the above command and execute it again to resolve the error.
+```
+Webpacker::Manifest::MissingEntryError - Webpacker can't find application.css in /Users/kei/programing/ruby/webass/diveintopost/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
 ```
 
 ## Development flow
