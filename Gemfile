@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.1'
 
 # Core
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'rails', '5.2.5'
+gem 'rails', '6.0.3'
 
 # Middleware
 gem 'pg', '>= 0.18', '< 2.0'
