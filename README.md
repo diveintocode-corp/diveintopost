@@ -7,9 +7,8 @@
 ただしUser招待などのロジックテスト（Model Spec）は実装している。
 
 ## バージョン
-* Ruby 2.6.5
-* Ruby on Rails 5.2.5
-* psql (PostgreSQL) 12.3
+* Ruby 3.0.1
+* Ruby on Rails 6.0.3
 
 ## 準備
 
@@ -23,6 +22,8 @@ $ rails db:seed_fu
 ```
 
 ### Windowsユーザ向け
+以下の内容に関してすでに設定済みの場合は読み飛ばしていただいて構いません。
+
 Vagrantを通してUbuntu上にyarnをインストールするときは、事前に次の対応が必要です。
 
 ### 1. Windowsローカルセキュリティポリシーで、シンボリック作成権限を一般ユーザーにも許可する
@@ -112,9 +113,8 @@ The reason is that because this application is a small and in-house tool, we do 
 However, logic tests (Model Spec) such as user invitation are implemented.
 
 ## Version
-* Ruby 2.6.5
-* Ruby on Rails 5.2.4.3
-* psql (PostgreSQL) 12.3
+* Ruby 3.0.1
+* Ruby on Rails 6.0.3
 
 ## Preparation
 
@@ -123,8 +123,6 @@ $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
 $ bundle install --path vendor/bundle
 $ yarn install # If yarn has not been installed yet.
-$ yarn add @fortawesome/fontawesome-free
-$ yarn add @fortawesome/free-solid-svg-icons
 $ rails db:create db:migrate
 $ rails db:seed_fu
 ```
