@@ -7,24 +7,11 @@
 ただしUser招待などのロジックテスト（Model Spec）は実装している。
 
 ## バージョン
-* Ruby 3.0.1
-* Ruby on Rails 6.0.3
-* または
 * Ruby 2.6.5
 * Ruby on Rails 5.2.5
 
 ## 準備
 
-[Rails6の場合]
-```
-$ git clone git@github.com:DiveintoCode-corp/diveintopost-rails6.git
-$ cd diveintopost_rails6
-$ bundle install --path vendor/bundle
-$ yarn install # まだ環境にyarnが入っていなかったら
-$ rails db:create db:migrate
-$ rails db:seed_fu
-```
-[Rails5の場合]
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
@@ -126,24 +113,11 @@ The reason is that because this application is a small and in-house tool, we do 
 However, logic tests (Model Spec) such as user invitation are implemented.
 
 ## Version
-* Ruby 3.0.1
-* Ruby on Rails 6.0.3
-* or
 * Ruby 2.6.5
 * Ruby on Rails 5.2.5
 
 ## Preparation
 
-[For Rails6]
-```
-$ git clone git@github.com:DiveintoCode-corp/diveintopost-rails6.git
-$ cd diveintopost-rails6
-$ bundle install --path vendor/bundle
-$ yarn install # If yarn has not been installed yet.
-$ rails db:create db:migrate
-$ rails db:seed_fu
-```
-[For Rails5]
 ```
 $ git clone git@github.com:DiveintoCode-corp/diveintopost.git
 $ cd diveintopost
