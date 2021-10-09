@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
     user.keep_team_id = current_team.id
     user.save!
   end
-
+  def is_leader?(team)
+    team.owner.id == current_user.id
+  end
   private
 
   def set_working_team
@@ -16,4 +18,5 @@ class ApplicationController < ActionController::Base
   def init_team
     current_user.assigns.create!(team_id: Team.first.id) if current_user.teams.blank?
   end
+  
 end

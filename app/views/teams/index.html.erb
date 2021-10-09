@@ -13,9 +13,19 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to'Show', team %>
+        </td>
+        <td>
+          <% if is_leader?(team)%>
+            <%= link_to 'Edit', edit_team_path(team) %>
+            <% end %>
+        </td>
+        <td>
+          <% if is_leader?(team)%>
+            <%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
