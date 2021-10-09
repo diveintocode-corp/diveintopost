@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
-
+  before_action :leader_required, only: %i[edit update destroy]
   def index
     @teams = Team.all
   end
@@ -46,7 +46,7 @@ class TeamsController < ApplicationController
   def dashboard
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
-
+  
   private
 
   def set_team
@@ -55,5 +55,10 @@ class TeamsController < ApplicationController
 
   def team_params
     params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
+  end
+
+  def leader_required
+    flash.keep[:error] = I18n.t('views.messages.failed_to_save_team')
+    redirect_to teams_url if is_leader?(@team)
   end
 end

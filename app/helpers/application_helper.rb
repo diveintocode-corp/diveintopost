@@ -23,4 +23,8 @@ module ApplicationHelper
       article_path(article)
     end
   end
+
+  def is_leader?(team)
+    team.owner.id == current_user.id
+  end
 end
