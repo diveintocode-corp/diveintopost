@@ -263,7 +263,13 @@ en:
       edit_profile: 'Edit Profile'
       team_you_belong_to: 'The team you belong to'
       posted_articles: 'List of posted articles'
+      assign_leader:
+        subject: 'Leader assignment'
+        title: 'Your email address has been assigned as leader'
+      are_you_sure: 'Are you sure?'
+        
     button:
+      make_leader: 'Make leader'
       submit: 'Submit'
       edit: 'Edit'
       delete: 'Delete'

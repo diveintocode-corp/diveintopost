@@ -44,9 +44,15 @@
                       <td><%= image_tag 'default.jpg', size: '40x40' %></td>
                       <td><%= assign.user.email %></td>
                       <td>
-                      <% if  assign.team.owner.id == current_user.id || current_user.id == assign.user.id %>
-                        <%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-primary' %>
-                      <% end %>
+                        <% if  is_leader?(@team) || current_user.id == assign.user.id %>
+                          <%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: I18n.t('views.messages.are_you_sure') } %>
+                        <% end %>
+                        
+                      </td>
+                      <td>
+                        <% if  canTransferAuthority?(@team, assign.user) %>
+                          <%= link_to I18n.t('views.button.make_leader'), team_transfer_path(@team, assign),method: :post,  class: 'btn btn-sm btn-primary', data: { confirm: I18n.t('views.messages.are_you_sure') }%>
+                        <% end %>
                       </td>
                     </tr>
                   <% end %>

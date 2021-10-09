@@ -253,7 +253,12 @@ ja:
       edit_profile: 'プロフィールを編集'
       team_you_belong_to: '所属しているチーム'
       posted_articles: '投稿した記事一覧'
+      assign_leader:
+          subject: 'リーダーの割り当て '
+          title: 'あなたのメールアドレスがリーダーとして割り当てられました'
+      are_you_sure: '本気ですか？'
     button:
+      make_leader: 'リーダーにする'
       submit: '投稿'
       edit: '編集'
       delete: '削除'

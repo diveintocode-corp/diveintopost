@@ -2,7 +2,7 @@ class AssignsController < ApplicationController
   before_action :authenticate_user!
   before_action :email_exist?, only: [:create]
   before_action :user_exist?, only: [:create]
-
+  
   def create
     team = find_team(params[:team_id])
     user = email_reliable?(assign_params) ? User.find_or_create_by_email(assign_params) : nil
@@ -20,7 +20,19 @@ class AssignsController < ApplicationController
 
     redirect_to team_url(params[:team_id]), notice: destroy_message
   end
-
+  def transfer
+    assign = Assign.find(params[:id])
+    team = find_team(params[:team_id])
+    team.owner = assign.user
+    if team.save
+      
+      AssignMailer.leader_assigned(assign.user.email, team.name).deliver
+      redirect_to team_url(team), notice: 'Team leader changed!'
+    else
+      redirect_to team_url(team), notice: I18n.t('views.messages.failed_to_assign')
+    end
+    
+  end
   private
   def assign_params
     params[:email]
